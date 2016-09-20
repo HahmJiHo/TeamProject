@@ -11,7 +11,7 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 <link rel="stylesheet" type="text/css" href="../css/common_style.css">
-<link rel="stylesheet" type="text/css" href="../css/group.css">
+<link rel="stylesheet" type="text/css" href="../css/group02.css">
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <meta name="viewport"
        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -21,27 +21,15 @@
 <section>
   <div class="section-wrap">
     <h2>OOO 님의 그룹 입니다.</h2>
-    <br> <br> <br> <br>
-    
-<!--         <div class="title-menu">
-          <ul class="title-nav">
-            <li><a href="#" class="active">그룹</a></li>
-            <li><a href="#">월간</a></li>
-            <li><a href="#">주간</a></li>
-          </ul>
-        </div> -->
-        
-        
-    
-    <form>
-    <input type="text" name="tex1" placeholder="검색어를 입력하세요"> 
-    <input type="submit" value="검색">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" value="그룹">
-    <input type="submit" value="월간달력"><a href="#"></a> 
-    <input type="submit" value="주간달력">
-    </form>
-
-    <br> <br> <br> <br>
+    <br> <br> <br> 
+    <div>
+	    <input type="text" name="tex1" placeholder="검색어를 입력하세요"> 
+	    <input type="submit" value="검색">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="submit" value="그룹" onClick="location.href='group01.jsp'">
+	    <input type="submit" value="월간달력" onClick="location.href='group02.jsp'">
+	    <input type="submit" value="주간달력" onClick="location.href='group03.jsp'">
+    </div> 
+    <br> <br> <br> <br>  
 
     <div id="calendar-wrap">
             <header>

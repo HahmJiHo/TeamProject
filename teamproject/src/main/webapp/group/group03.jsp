@@ -21,15 +21,15 @@
 <section>
   <div class="section-wrap">
     <h2>OOO 님의 그룹 입니다.</h2>
-    <br> <br> <br> <br>
+    <br> <br> <br> 
     <div>
-      <input type="text" name="tex1" placeholder="검색어를 입력하세요"> 
-      <input type="submit" value="검색">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="submit" value="그룹" onClick="location.href='group01.jsp'">
-      <input type="submit" value="월간달력" onClick="location.href='group02.jsp'">
-      <input type="submit" value="주간달력" onClick="location.href='group03.jsp'">
+	    <input type="text" name="tex1" placeholder="검색어를 입력하세요"> 
+	    <input type="submit" value="검색">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="submit" value="그룹" onClick="location.href='group01.jsp'">
+	    <input type="submit" value="월간달력" onClick="location.href='group02.jsp'">
+	    <input type="submit" value="주간달력" onClick="location.href='group03.jsp'">
     </div> 
-    <br> <br> <br>  
+    <br> <br> <br> <br>   
 <!--     <form>
     <input type="text" name="tex1" placeholder="검색어를 입력하세요"> 
     <input type="submit" value="검색">
