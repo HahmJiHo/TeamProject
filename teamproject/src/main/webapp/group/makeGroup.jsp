@@ -34,7 +34,7 @@
 	    </div>
 	    <div class="my-group">
 	     <ul class="member">
-	       <li><a href="#"><i class="group-img"><img src="../images/profile.png"></i><span>그룹1</span></a></li>
+	       <li><a href="makeSc.jsp"><i class="group-img"><img src="../images/profile.png"></i><span>그룹1</span></a></li>
 	       <li><a href="#"><i class="group-img"><img src="../images/profile.png"></i><span>그룹2</span></a></li>
 	       <li><a href="#"><i class="group-img"><img src="../images/profile.png"></i><span>그룹3</span></a></li>
 	       <li><a href="#"><i class="group-img"><img src="../images/profile.png"></i><span>그룹4</span></a></li>
