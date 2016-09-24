@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>프로젝트-스케쥴</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../css/common_style.css" >
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
+		<link href='../css/fullcalendar.css' rel='stylesheet' />
+		<link href='../css/fullcalendar.print.css' rel='stylesheet' media='print' />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+		
+		<script src='../js/moment.min.js'></script>
+		
+		<script src='../js/fullcalendar.min.js' charset="UTF-8"></script>
+	  <script src='../js/ko.js'></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" type="text/css" href="../css/makeCal.css" >
+	  
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	  <style>
+	    #calendar {
+	    max-width: 900px;
+	    margin: 0 auto;
+	    
+     }
+  </style>
+</head>
+<body>
+	<header>
+	
+	</header>
+	<section>
+		<div class="section-wrap">
+		  <div class="make-top">
+		    <div class="make-text">
+		     <h2>OOO 님의 일정만들기.</h2>
+	  	   <p>일정을 만들 그룹을 선택해 주세요.</p>
+		    </div>
+		    <div class="my-info">
+		       <ul>
+		         <li class="my-profile">My 이미지</li> 
+		         <li class="add-group"><a href="#">그룹 추가</a></li>
+		       </ul>  
+		    </div>
+	    </div>
+	    <div class="artice" style="float: left;">
+        <div class="mobile-add-caledar" >            
+           <div class="container" style="position:relative">
+             <form>
+               <ul>
+                 <li><span>이벤트 : </span><input type="text" id="eventTitle" placeholder="Title here"><br /></li>
+                 <li><span>시작일 : </span><input type="text" id="eventDateStart"><br></li>
+                 <li><span>종료일 : </span><input type="text" id="eventDateEnd"></li>
+               </ul> 
+             </form>     
+           </div>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+           <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>       
+         </div>
+				<div id='calendar'></div>					  
+	    </div>
+	     <div class="aside" style="float: left;">
+	       <ul>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	       </ul>
+	     </div>
+	  </div>
+	  
+    <div id="calendarModal" class="modal fade">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			        <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+			            <h4 id="modalTitle" class="modal-title"></h4>
+			            <p class="modal-start-date"></p>
+			            <p class="modal-end-date"></p>
+			        </div>
+			        <div id="modalBody" class="modal-body"> </div>
+			        <div class="modal-footer">
+			            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			    </div>
+			</div>
+    </div>
+    
+
+	  <div class="reply">
+	  <form name="writeForm" id="writeForm" action="js/jso.json">
+	  <div class="reply-contents">	  
+	     <div class="reply-box">
+           <ul></ul>
+        </div> 
+		    <div class="write-box">           
+	         <textarea name="reply" id="reply-area" class="review-replay" placeholder="로그인 후에 등록됩니다."></textarea>
+	         <div class="write-btn">
+	           <input type="button" value="등록" class="reply-btn" name="reply-btn">
+	         </div>
+	          <p class="textcomment">최대 <span class="byte-count"><em>0</em></span>/ 200bytes (최대 한글 100자, 영문200자)</p>                           
+	       </div>
+       </div>
+     </form>
+	  </div>
+	</section>
+  <footer>
+  
+  </footer>
+  <script type='text/javascript'  src="../js/include.js"></script>    
+  <script type='text/javascript' src='../js/cal_custom.js'></script>
+  <script type='text/javascript'  src="../js/main.js"></script>
+  <script type='text/javascript'  src="../js/calendar.js"></script> 
+</body>
+</html>

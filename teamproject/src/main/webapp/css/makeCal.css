@@ -10,6 +10,8 @@
 .member li span { display:block; text-align: center; font-size: 20px;} 
 .group-img { width: 200px; height: 200px; }
 
+.aside ul li {}
+
 
 .reply { clear: both; width: 1080px; margin:0 auto;}
 .reply-contents { width: auto; }
@@ -28,6 +30,9 @@ text-align:center; vertical-align:top; }
 .textcomment{clear: both; padding-top:5px; color:#333; float: left;}
 .textcomment span{color:#4e59e7;}
 .review-replay { float: left; width:78%; height: 35px; }
+
+nav .nav-warp .nav li a:focus, nav .nav-warp .nav li a:hover { text-decoration: none; 
+background-color: transparent; color:#fff; }
 
 @media (min-width: 980px) and (max-width: 1080px) {
   .group-img img{ width: 80%; height: 80%;}
