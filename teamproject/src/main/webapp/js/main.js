@@ -1,9 +1,8 @@
-$(function() {     
-  var navBar = $('.navbar')
-    , $nav = $('.nav'); 
+$(document).ready(function() {    
   
-  $(navBar).click(function() {
-    $nav.slideToggle();	
+  $('header').on("click", ".navbar", function(e) {
+	$('.nav').slideToggle();	
+    console.log("aa")
   });    
     
   

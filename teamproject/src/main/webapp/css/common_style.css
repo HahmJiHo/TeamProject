@@ -26,11 +26,10 @@ ul:after{content:" ";display:block;clear:both;}
 body{ font-family:"arial", sans-serif; font-size:12px;}
 
 /*header*/
-header { background: #0063A6; color:#fff; height: 45px;}
-nav{ background: #111; width: 100%; }
+header { background: #111; color:#fff; height: 45px;}
+nav{  width: 100%; }
 .nav-warp { margin: 0 auto;  width: 1080px; }
-.nav-warp h1{ float: left; margin-right: 5px; font-size: 20px; padding:10px; }
-.nav-warp .nav{ padding-top:12px; }
+.nav-warp h1{ float: left; margin-right: 5px; font-size: 20px;  }
 .nav-warp .nav li{ float: left; margin-right: 10px; font-size:14px;}
 .navbar { display: none; position: fixed; right:20px; top:10px; cursor: pointer; }
 .navbar i { display: block; width: 20px; height: 3px; background: #fff; margin:4px 0; }
@@ -43,8 +42,8 @@ section {min-height:700px;}
 
 footer { background: #0063A6; color:#fff; padding: 25px 0; clear: both; }
 .footer-warp p { text-align: center; }
-
-@media (min-width: 1080px) {
+.mobile-add-caledar { display: none; }
+@media (min-width: 1080px) {	 
   .nav-warp li{ float: left; margin-right: 10px; font-size:14px;}
   .nav-warp .nav { display:block !important; }
   .nav-warp .nav li.logout { float: right; }
@@ -56,29 +55,30 @@ footer { background: #0063A6; color:#fff; padding: 25px 0; clear: both; }
   .title-menu{ float: none; }
   .member-join { float: none; }
   .nav-warp .nav li.logout { float: right; }
+  
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
   .header-warp, .nav-warp, .section-wrap { width: auto; }
-  .nav-warp h1 { float: none;}
   .nav-warp .nav { display: none; position: absolute; width:100%; background: #111; }
   .nav-warp .nav li{ float: none; padding:14px; }
-  .navbar { display: block; }
+  .nav-warp .navbar { display: block; position: absolute; }
   .title-menu { float: none; }
   .member-join { float: none; }
   .nav-warp .nav li.logout { float: none; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+ .mobile-add-caledar { display: block; }
  .header-warp, .nav-warp, .section-wrap { width: auto; }
- .nav-warp h1 { float: none; } 
  .nav-warp .nav { display: none; position: absolute; width:100%; background: #111;}
  .nav-warp .nav { display: none; }
  .nav-warp .nav li{ float: none; padding:14px;}
  .member-join { float: none; }
- .navbar { display: block; }
+ .nav-warp .navbar { display: block; position: absolute; }
  .nav-warp .nav li.logout { float: none; }
+
 }
-
-
-
+@media (max-width: 500px) {
+  .mobile-add-caledar { display: block; }
+}

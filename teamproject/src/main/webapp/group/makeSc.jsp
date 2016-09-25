@@ -1,4 +1,3 @@
-<%@ page import="java.util.*" %>
 <%@ page language="java" 
          contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"
@@ -15,11 +14,12 @@
     <link rel="stylesheet" type="text/css" href="../css/common_style.css" >
     <link rel="stylesheet" type="text/css" href="../css/makeCal.css" >
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script type='text/javascript'  src="../js/main.js"></script>   
+    <script type='text/javascript'  src="../js/main.js"></script>
+       
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 <body>
-	<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 	<section>
 		<div class="section-wrap">
 		  <div class="make-top">
@@ -39,10 +39,10 @@
 	     </div>
 	     <div class="aside" style="float: left;">
 	       <ul>
-	         <li>회원1</li>
-	         <li>회원1</li>
-	         <li>회원1</li>
-	         <li>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
+	         <li><span class="makesc-member"></span>회원1</li>
 	       </ul>
 	     </div>
 	  </div>
@@ -63,7 +63,7 @@
      </form>
 	  </div>
 	</section>
-  <jsp:include page="/footer.jsp"></jsp:include>
+  <jsp:include page="../footer.jsp"></jsp:include>
    <script type='text/javascript' src='../js/cal_custom.js'></script>
 </body>
 </html>
