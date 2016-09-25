@@ -25,6 +25,10 @@
 	  
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.css" />
 	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+	  
 	  <style>
 	    #calendar {
 	    max-width: 900px;
@@ -52,6 +56,7 @@
 		    </div>
 	    </div>
 	    <div class="artice" style="float: left;">
+        <!-- 
         <div class="mobile-add-caledar" >            
            <div class="container" style="position:relative">
              <form>
@@ -61,12 +66,57 @@
                  <li><span>종료일 : </span><input type="text" id="eventDateEnd"></li>
                </ul> 
              </form>     
-           </div>
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-           <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>       
+           </div>                 
          </div>
-				<div id='calendar'></div>					  
+        -->
+     <!--   
+    <div id="calendarAddModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+      -->                  
+                   <div class="container" style="position:relative">
+                     <form>
+                       <ul>
+                         <li><span>이벤트 : </span><input type="text" id="addeventTitle"><br /></li>
+                         <li><span>시작일 : </span><input type="text" id="addDateStart"><br></li>
+                         <li><span>종료일 : </span><input type="text" id="addDateEnd"></li>
+                       </ul> 
+                     </form>     
+                   </div>      
+     <!--                               
+              </div>
+              <div id="modalBody" class="modal-body"> </div>
+              <div class="modal-footer">
+                  <button type="button" class="fc-myCustomButton-button fc-button fc-state-default fc-corner-left fc-corner-right">save</button>
+                  <button type="button" class="btn btn-default add-close-btn" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+    </div>
+            -->  
+	 <div id='calendar'></div>				
+
+      
+    <div id="calendarModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                  <h4 id="modalTitle" class="modal-title"></h4>
+                  <p class="modal-start-date"></p>
+                  <p class="modal-end-date"></p>
+              </div>
+              <div id="modalBody" class="modal-body"> </div>
+              <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+    </div>	  
+    
 	    </div>
 	     <div class="aside" style="float: left;">
 	       <ul>
@@ -78,40 +128,26 @@
 	     </div>
 	  </div>
 	  
-    <div id="calendarModal" class="modal fade">
-			<div class="modal-dialog">
-			    <div class="modal-content">
-			        <div class="modal-header">
-			            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-			            <h4 id="modalTitle" class="modal-title"></h4>
-			            <p class="modal-start-date"></p>
-			            <p class="modal-end-date"></p>
-			        </div>
-			        <div id="modalBody" class="modal-body"> </div>
-			        <div class="modal-footer">
-			            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        </div>
-			    </div>
-			</div>
-    </div>
+   
     
 
 	  <div class="reply">
-	  <form name="writeForm" id="writeForm" action="js/jso.json">
-	  <div class="reply-contents">	  
-	     <div class="reply-box">
-           <ul></ul>
-        </div> 
-		    <div class="write-box">           
-	         <textarea name="reply" id="reply-area" class="review-replay" placeholder="로그인 후에 등록됩니다."></textarea>
-	         <div class="write-btn">
-	           <input type="button" value="등록" class="reply-btn" name="reply-btn">
-	         </div>
-	          <p class="textcomment">최대 <span class="byte-count"><em>0</em></span>/ 200bytes (최대 한글 100자, 영문200자)</p>                           
+		  <form name="writeForm" id="writeForm" action="js/jso.json">
+		  <div class="reply-contents">	  
+		     <div class="reply-box">
+	           <ul></ul>
+	        </div> 
+			    <div class="write-box">           
+		         <textarea name="reply" id="reply-area" class="review-replay" placeholder="로그인 후에 등록됩니다."></textarea>
+		         <div class="write-btn">
+		           <input type="button" value="등록" class="reply-btn" name="reply-btn">
+		         </div>
+		          <p class="textcomment">최대 <span class="byte-count"><em>0</em></span>/ 200bytes (최대 한글 100자, 영문200자)</p>                           
+		       </div>
 	       </div>
-       </div>
-     </form>
+	     </form>
 	  </div>
+	  
 	</section>
   <footer>
   
