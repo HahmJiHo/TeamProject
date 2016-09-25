@@ -1,0 +1,19 @@
+
+
+
+article { width: 1080px; margin: 0 auto;}
+.new-group-box {
+	width: 465px; height: 385px;
+	margin: 100px auto 50px auto;
+	background-color: #DCDCDC;
+}
+.new-group-box h2 { font-size: 30px; padding:10px;}
+.new-group-box label { font-size: 18px; padding: 10px;} 
+.new-group-box input { width: 415px; height:15px; clear: both; padding: 10px; margin: 5px 5px 5px 5px; margin-bottom: 10px; }
+.file { text-align: right; width: 415px; height:40px; padding: 10px;}
+.button { text-align: right; padding: 20px; }
+.button2 { text-align: center; }
+.new-group-box li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+.new-group-box li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+.new-group-box li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+

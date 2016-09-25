@@ -1,0 +1,22 @@
+
+
+
+article { width: 1080px; margin: 0 auto;}
+.inviteMember {
+	width: 465px; height: 385px;
+	margin: 100px auto 50px auto;
+	background-color: #DCDCDC;
+}
+.inviteMember h2 { font-size: 30px; padding:10px;} 
+.button { text-align: center; margin-top: 10px;}
+.button .sendEmail { width: 220px; }
+.button .sendLink { width: 220px; }
+.input .email { width: 430px; height: 25px; margin: 20px;}
+.inviteMember p { margin-left: 20px; }
+.input .message { width: 430px; height: 100px; margin: 20px; }
+.button2 { text-align: right; margin: 20px; }
+.button3 { text-align: center; }
+.inviteMember li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+.inviteMember li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+.inviteMember li{ display: inline-block; border: 1px solid #e5e5e5; padding: 20px; }
+
