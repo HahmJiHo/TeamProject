@@ -38,32 +38,11 @@ body{ font-family:"arial", sans-serif; font-size:12px;}
   padding: 2rem;
 }
 
-.schedule {
-	width: 1000px;
-	height: 300px;
-	margin: 0 auto;
-}
-
 
 .sectionbar-line {
 	text-align: center;
 }
 
-
-
-.schedule-info {
-	width: 680px;
-	height: 300px;
-	float: right;
-}
-
-.title {
-	font-size: 47px;
-}
-
-.d-day {
-	width: 400px;
-}
 
 .gallery{
   width: 300px;
