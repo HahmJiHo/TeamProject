@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
+ <link href='../css/fullcalendar.css' rel='stylesheet' />
+      <link href='../css/fullcalendar.print.css' rel='stylesheet' media='print' />
+   <script src='../js/moment.min.js'></script>
+      <script src='../js/fullcalendar.min.js' charset="UTF-8"></script>
+     <script src='../js/ko.js'></script>
+     <script src='../js/calendar.js'></script>
+<title>Insert title here</title>
+</head>
+<style>
+#calendar {
+       max-width: 850px;
+       margin: 0 auto;
+     }
+</style>
+<body>
+<section>
+		<div class="section-wrap">
+			<div class="selectbar-left">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="button" class="btn btn-default">검색</button>
+				</form>
+				<div class="btn-group" role="group" aria-label="...">
+					<button type="button" class="glyphicon glyphicon-th-list"
+							onclick="location.href='MySchedule2.html'"></button>
+					<button type="button" class="btn btn-default">월</button>
+					<button type="button" class="btn btn-default">주</button>
+					<button type="button" class="btn btn-default">일</button>
+				</div>
+				<div class="sectionbar-line">
+					<hr align=center width=80%>
+				</div>
+			</div>
+		<nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-padding-0"><b>이상원님의 캘린더</b><img src="../images/sangwon.jpg" style="width:45%;" class="w3-round"><br></h4>
+  </div>
+  <a href="#" class="w3-padding w3-text-teal">전체 그룹 일정보기</a> 
+  <a href="#" class="w3-padding">그룹1</a> 
+  <a href="#" class="w3-padding">그룹2</a> 
+  <a href="#" class="w3-padding">그룹3</a>
+  <a href="#" class="w3-padding">그룹4</a>
+   
+  <div class="w3-section w3-padding-top w3-large">
+    <a href="#" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
+    <a href="#" class="w3-hover-white w3-hover-text-red w3-show-inline-block"><i class="fa fa-pinterest-p"></i></a>
+    <a href="#" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="w3-hover-white w3-hover-text-grey w3-show-inline-block"><i class="fa fa-flickr"></i></a>
+    <a href="#" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
+  </div>
+</nav>
+
+<div id='calendar'></div>
+		
+
+</div>
+
+
+
+</section>
+
+</body>
+</html>

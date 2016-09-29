@@ -22,7 +22,7 @@
 			<h2>OOO 님의 그룹 관리</h2>
 				<div class="new-group-box">
 					<h2>New Group</h2>
-					<label for="groupname">Enter a name for this group</label><br> 
+					<label for="groupname">Enter a name for this group</label><br>
 					<input type="text" name="groupname" placeholder="그룹명을 입력하세요."><br>
 					<label for="file">Group Image</label><br> 
 					<input type="file" name="file"><br> 
