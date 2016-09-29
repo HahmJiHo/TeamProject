@@ -11,9 +11,10 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<context:component-scan base-package="example.controller">
-	 <context:exclude-filter type="regex" expression="example.controller.json.*"/>
-	</context:component-scan>	
+	<context:component-scan base-package="example.controller.json" />	
+	
+	
+	
 	<!-- 쓰프링 WebMVC 관련 애노테이션을 처리해주는 객체를 등록한다. -->
   <mvc:annotation-driven/>
   

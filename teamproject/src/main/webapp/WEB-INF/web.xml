@@ -8,16 +8,17 @@
 >
   
   <!-- 리스너가 사용할 글로벌 파라미터 등록 필터나 서블릿도 사용할수 있다. -->
-  <!--  
+    
   <context-param>
     <param-name>contextConfigLocation</param-name>
-     <param-value>classpath:conf/application-context.xml</param-value>
+    <param-value>/WEB-INF/application-context.xml</param-value> 
+     <!--  <param-value>classpath:conf/application-context.xml</param-value> -->
   </context-param>
 
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-   -->
+  
 
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
@@ -54,6 +55,19 @@
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- *.json 요청을 처리할 프런트 컨트롤러 등록-->
+  <servlet>
+    <servlet-name>json</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>json</servlet-name>
+    <url-pattern>*.json</url-pattern>
   </servlet-mapping>
   
 </web-app>
