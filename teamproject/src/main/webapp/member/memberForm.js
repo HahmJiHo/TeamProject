@@ -4,7 +4,7 @@ document.querySelector("#addBtn").addEventListener("click", function(e) {
 			name : document.querySelector("#name").value,
 			nicknm : document.querySelector("#nicknm").value,
 			email : document.querySelector("#email").value,
-			pwd : document.querySelector("#pwd").value
+			password : document.querySelector("#password").value
 	}
 	ajaxAddBoard(member)
 });
@@ -15,6 +15,7 @@ document.querySelector("#updateBtn").addEventListener("click", function(e) {
 			name : document.querySelector("#name").value,
 			nicknm : document.querySelector("#nicknm").value,
 			email : document.querySelector("#email").value,
+			password : document.querySelector("#password").value,
 			no : document.querySelector("#no").value
 	}
 	ajaxUpdateBoard(member)
@@ -63,7 +64,7 @@ function ajaxAddBoard(member) {
 	var params = "name=" + encodeURIComponent(member.name) + 
 	"&nicknm=" + encodeURIComponent(member.nicknm) + 
 	"&email=" + member.email + 
-	"&pwd=" + encodeURIComponent(member.pwd)
+	"&password=" + encodeURIComponent(member.password)
 
 	// 자바스크립트 AJAX 에서는 직접 URL인코딩을 해야 한다. 
 	xhr.send(params)
@@ -128,7 +129,8 @@ function ajaxUpdateBoard(member) {
         }          
 		 */
 		if (result.state != "success") {
-			console.log(result.data)
+			console.log(result.data.no)
+			console.log(result.data.password)
 			alert("변경 실패 입니다.")       
 			return
 		} 
@@ -143,6 +145,7 @@ function ajaxUpdateBoard(member) {
 	var params = "name=" + encodeURIComponent(member.name) + 
 	"&nicknm=" + encodeURIComponent(member.nicknm) + 
 	"&email=" + encodeURIComponent(member.email) +
+	"&password=" + encodeURIComponent(member.password) +
 	"&no=" + member.no
 	// 자바스크립트 AJAX 에서는 직접 URL인코딩을 해야 한다. 
 	xhr.send(params)
