@@ -6,7 +6,7 @@ document.querySelector("#addBtn").addEventListener("click", function(e) {
 			email : document.querySelector("#email").value,
 			password : document.querySelector("#password").value
 	}
-	ajaxAddBoard(member)
+	ajaxAddMember(member)
 });
 
 
@@ -18,16 +18,16 @@ document.querySelector("#updateBtn").addEventListener("click", function(e) {
 			password : document.querySelector("#password").value,
 			no : document.querySelector("#no").value
 	}
-	ajaxUpdateBoard(member)
+	ajaxUpdateMember(member)
 });
 
 document.querySelector("#deleteBtn").addEventListener("click", function(e) {  
-	ajaxDeleteBoard(document.querySelector("#no").value)
+	ajaxDeleteMember(document.querySelector("#no").value)
 });
 
 
 
-function ajaxAddBoard(member) {
+function ajaxAddMember(member) {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(result) {        
 		if (xhr.readyState != 4)
@@ -71,7 +71,7 @@ function ajaxAddBoard(member) {
 	
 }
 
-function ajaxLoadBoard(no) {
+function ajaxLoadMember(no) {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(result) {        
 		if (xhr.readyState != 4)
@@ -109,7 +109,7 @@ function ajaxLoadBoard(no) {
 
 }
 
-function ajaxUpdateBoard(member) {
+function ajaxUpdateMember(member) {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(result) {        
 		if (xhr.readyState != 4)
@@ -152,7 +152,7 @@ function ajaxUpdateBoard(member) {
 
 }
 
-function ajaxDeleteBoard(no) {
+function ajaxDeleteMember(no) {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(result) {        
 		if (xhr.readyState != 4)

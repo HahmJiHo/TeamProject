@@ -83,7 +83,7 @@
 
 if (location.search.startsWith("?")) {
 	var no = location.search.split("=")[1];
-	ajaxLoadBoard(no)
+	ajaxLoadMember(no)
 	var tags = document.querySelectorAll(".my-new")
   for (var i = 0; i < tags.length; i++) {
     tags[i].style.display = "none"

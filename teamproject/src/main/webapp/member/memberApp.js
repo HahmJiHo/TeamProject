@@ -1,4 +1,3 @@
-
 document.querySelector("#loginBtn").onclick = function (e) {
 	location.href = "../auth/authApp.html"
 }
@@ -7,7 +6,7 @@ document.querySelector("#logoutBtn").onclick = function (e) {
 	location.href = "../auth/authApp.html"
 }
 
-function ajaxBoardList() {
+function ajaxMemberList() {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(result){        
 		if (xhr.readyState != 4)
