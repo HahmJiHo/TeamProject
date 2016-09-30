@@ -1,29 +1,52 @@
 "use strict";
-$(document).ready(function() {  
-
+$(document).ready(function() {  	
 	$('#calendar').fullCalendar({		
 		customButtons: {			
 			myCustomButton: {
 				text: 'save',
 				click: function() {	
-					//console.log("11");
-
 					var event = { 
 							title: $('#addeventTitle').val(), 
 							start: $('#addDateStart').val(),
 							end: $('#addDateEnd').val(),
-							location : $('.location').val()
-					};								
-					var errorTest = "입력하지 않았습니다."
-						if ($('#addeventTitle').val().length != 0 && $('#addDateStart').val().length != 0 && $('#addDateEnd').val().length != 0) {
-						//	console.log(event)
+							location : $('.location').val(),
+					};		
+					/*
+					$('.sc-list').on('click', ':checkbox', function() {
+						if ($(this).is(':checked')) {
+							alert($(this).val());
+						}  else {
+							alert('unchecked')
+						}
+					})
+						*/
+					
+					var checkPoint = $('.list-checked').is(':checked')
+					var count = 0
+					var len = $('.fc-event-container').length
+
+					for (var i = 0; i < len; i++) {												
+						count++	
+					}
+					
+					if (checkPoint == false) {
+						$(".schedule-btn").append("<li class='sc-list'><input class='list-checked' type='checkbox' name='schedule' data-value='"+ count +"'>"+ event.title +"</li>");
+					}
+					
+					
+					var errorTest = "입력하지 않은 항목이 있습니다."
+						if ($('#addeventTitle').val().length != 0 
+								&& $('#addDateStart').val().length != 0 
+								&& $('#addDateEnd').val().length != 0
+						) {
+							//	console.log(event)
 							$('#calendar').fullCalendar('renderEvent', event, true);									
-											
 							swal(
 									'Good job!',
 									'You clicked the button!',
 									'success'							
 							)
+																										
 							$('#calendarAddModal').modal('hide');
 						} else {
 
@@ -57,36 +80,12 @@ $(document).ready(function() {
 									'You clicked the button!',
 									'error'							
 							)	
-						}	
-					//console.log(event)			
-					var count = 0;
-					var len = $('.fc-event-container').length
-					var listChecked = $('.list-checked')
-					for (var i = 0; i < len; i++) {
-						count++;
-						if (listChecked[i].prop('checked') == true) {						
-							console.log("aa")																					
-						} else {
-							$(".schedule-btn").append("<li class='sc-list'><input class='list-checked' type='checkbox' name='schedule' data-value='"+ count +"'>"+ event.title +"</li>");
 						}
-						
-					}
-					var scList = $(this).attr('data-value');
 					
-					 
-								
-					
-					/*var selected = [];			
-					$('.sc-list input:checked').each(function() {
-					    selected.push($(this).attr('data-value'));					    
-					});
-					*/
-				
-		
 				}	
-	
+
 			}
-		
+
 		},
 		header: {
 			left: 'prev,next today myCustomButton',
@@ -155,7 +154,8 @@ $(document).ready(function() {
 
 		},	
 		eventRender: function(event, element, view) {
-						
+			
+		
 			/* 일정 추가 */
 			$(".fc-myCustomButton-button").addClass("btn btn-primary")
 			$('.fc-myCustomButton-button').css({ "opacity": "0.0" , "position" : "absolute"});
@@ -202,15 +202,15 @@ $(document).ready(function() {
 				return false;
 			});
 
-			
+
 		},
 		eventClick: function(event, start, end) {
 			var moment11 = $('#calendar').fullCalendar('getDate')
 			start = moment(event.start).format('YYYY-MM-DD HH:mm')
 			end = moment(event.end).format('YYYY-MM-DD HH:mm')
-			 var thisIndex = $(this).index();
+			var thisIndex = $(this).index();
 			console.log(thisIndex);
-			
+
 			//alert("Event title: " + event.title + " Start Date: " + start + " End Date: " + end );
 			$('#calendarModal').modal()
 			$('#modalTitle').html(event.title)
@@ -218,7 +218,7 @@ $(document).ready(function() {
 			$('.modal-end-date').html(end)
 			$('#modalBody').html(event.description)
 			$('#eventUrl').attr('href',event.url)
-			
+
 			function google_map(mapid, addr) {
 				var geocoder =  new google.maps.Geocoder();
 				geocoder.geocode( {'address': addr }, function(results, status) {
@@ -259,29 +259,29 @@ $(document).ready(function() {
 						}); 
 					}
 				});
-				
-				
+
+
 			}
-			
+
 			$('#calendarModal').on('shown.bs.modal', function(){
 				google_map("google_map", event.location);
 				console.log(event);		
 				google.maps.event.trigger(map,'resize',{});
-				
+
 			});
 
 		},
-	
+
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events      			
 		events: [
-					{					
-					    title: "대성리",
-					    start: "2016-09-27T10:30:00-05:00",
-					    end: "2016-09-28T12:30:00-05:00",
-					    location : "경기도 가평군 청평면 대성리" 					
-					},
-	
+		         {					
+		        	 title: "대성리",
+		        	 start: "2016-09-27T10:30:00-05:00",
+		        	 end: "2016-09-28T12:30:00-05:00",
+		        	 location : "경기도 가평군 청평면 대성리" 					
+		         },
+
 		         ]
 
 
@@ -294,8 +294,6 @@ $(document).ready(function() {
 		$('#addDateEnd').val('');
 		$('#addeventTitle').val('');
 	});
-	
 
-	
 
 });   
