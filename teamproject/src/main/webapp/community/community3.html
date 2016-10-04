@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+   <meta charset="utf-8">
+    <title>hiba 커뮤니티</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../css/common_style.css" >
+    <link rel="stylesheet" type="text/css" href="../css/community3.css" >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+   <!--  Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <!-- 모달 -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
+		<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-warp">
+          <h1><a href="#">로고</a></h1>
+          <ul class="nav">
+            <li><a href="#">그룹</a></li>
+            <li><a href="#">그룹 앨범</a></li>
+            <li><a href="#">그룹 만들기</a></li>
+            <li><a href="#">일정 만들기</a></li>
+          </ul>
+           <div class="navbar">
+            <i class="icon-bar"></i>
+            <i class="icon-bar"></i>
+            <i class="icon-bar"></i>
+          </div>
+        </div>
+      </nav>   
+    </header>
+    <section>
+      <div class="section-wrap">
+         <h2>커뮤니티</h2>
+         <div class="col-md-6">
+     <input type="text"  placeholder="검색할 내용을 적어주세요">
+     <button type="button" class="btn btn-success">  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" >
+    글쓰기
+  </button>
+   <button type="button" class="btn btn-success">내글보기</button>
+   </div>
+   
+   
+     <div>
+      <button type="button" class="btn btn-default">최신순</button>
+     <button type="button" class="btn btn-default">조회수</button>
+     <button type="button" class="btn btn-default">댓글순</button>
+     <button type="button" class="btn btn-default">랜덤</button>
+ </div>
+   
+     <div id="columns">
+  
+
+  <div class="row">
+  
+<div class="container">
+  <!-- 모달 팝업 -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="myModalLabel">제목을 넣어주세요</h4>
+        </div>
+        <div class="modal-body">
+    ...
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+    <button type="button" class="btn btn-success">저장하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+
+<br><br><br>
+<!-- <div>
+<ul class="nav nav-tabs">
+	<li role="presentation" class="active"><a href="#">강남</a></li>
+  <li role="presentation"><a href="#">강북</a></li>
+  <li role="presentation"><a href="#">경기남부</a></li>
+  <li role="presentation"><a href="#">경기북부</a></li>
+  <li role="presentation"><a href="#">인천</a></li>
+  <li role="presentation"><a href="#">부산</a></li>
+  <li role="presentation"><a href="#">대구</a></li>
+  <li role="presentation"><a href="#">광주</a></li>
+  <li role="presentation"><a href="#">대전</a></li>
+  <li role="presentation"><a href="#">울산</a></li>
+  <li role="presentation"><a href="#">강원</a></li>
+  <li role="presentation"><a href="#">충청</a></li>
+  <li role="presentation"><a href="#">경상</a></li>
+  <li role="presentation"><a href="#">전라</a></li>
+  <li role="presentation"><a href="#">제주</a></li>
+</ul>
+<div class="map">
+<ul class="area">
+	<li>광진/건대입구</li>
+	<li>광화문/시청</li>
+	<li>노원/도봉/미아</li>
+	<li>대학로</li>
+	<li>동대문</li>
+	<li>마포</li>
+	<li>명동</li>
+	<li>부암동/평창동</li>
+	<li>삼청동</li>
+	<li>상암</li>
+	<li>서촌/경복궁</li>
+	<li>성동</li>
+	<li>성북</li>
+	<li>숙대/서울역</li>
+	<li>신촌/이대</li>
+	<li>안암/고대</li>
+	<li>연남동/연희동</li>
+	<li>연신내</li>
+	<li>이촌동/용산</li>
+	<li>이태원/한남동</li>
+	<li>종로/인사동</li>
+	<li>충무로/신당동</li>
+	<li>홍대</li>
+</ul>
+</div>
+</div> -->
+
+<!-- 
+<div class="tab-wrap">
+  <ul>
+    <li><a href="#tab1">강남</a></li>  
+		<li><a href="#tab2">강북</a></li>  
+		<li><a href="#tab3">경기남부</a></li>
+		<li><a href="#tab4">경기북부</a></li>
+		<li><a href="#tab5">인천</a></li>  
+		<li><a href="#tab6">부산</a></li>  
+		<li><a href="#tab7">대구</a></li>  
+		<li><a href="#tab8">광주</a></li>  
+		<li><a href="#tab9">대전</a></li>  
+		<li><a href="#tab10">울산</a></li> 
+		<li><a href="#tab11">강원</a></li> 
+		<li><a href="#tab12">충청</a></li> 
+		<li><a href="#tab13">경상</a></li> 
+		<li><a href="#tab14">전라</a></li> 
+		<li><a href="#tab15">제주</a></li> 
+  </ul>
+
+  <div>
+    <article id="tab1">
+      <h1>tab1 title</h1>
+				<ul>
+				  <li>광진/건대입구</li>
+				  <li>광화문/시청</li>
+				  <li>노원/도봉/미아</li>
+				  <li>대학로</li>
+				  <li>동대문</li>
+				  <li>마포</li>
+				  <li>명동</li>
+				  <li>부암동/평창동</li>
+				  <li>삼청동</li>
+				  <li>상암</li>
+				  <li>서촌/경복궁</li>
+				  <li>성동</li>
+				  <li>성북</li>
+				  <li>숙대/서울역</li>
+				  <li>신촌/이대</li>
+				  <li>안암/고대</li>
+				  <li>연남동/연희동</li>
+				  <li>연신내</li>
+				  <li>이촌동/용산</li>
+				  <li>이태원/한남동</li>
+				  <li>종로/인사동</li>
+				  <li>충무로/신당동</li>
+				  <li>홍대</li>
+				</ul>
+    </article>
+    
+    <article id="tab2">
+      <h1>tab2 title</h1>
+      <p>Here is tab2 contents</p>
+    </article>
+  </div>
+</div> -->
+
+
+<div id="exTab2" class="container"> 
+	<ul class="nav nav-tabs">
+		<li class="active"><a  href="#1" data-toggle="tab">강남</a></li>
+		<li><a  href="#2" data-toggle="tab">강북</a></li>
+		<li><a  href="#3" data-toggle="tab">경기남부</a></li>
+		<li><a  href="#4" data-toggle="tab">경기북부</a></li>
+		<li><a  href="#5" data-toggle="tab">인천</a></li>
+		<li><a  href="#6" data-toggle="tab">부산</a></li>
+		<li><a  href="#7" data-toggle="tab">대구</a></li>
+		<li><a  href="#8" data-toggle="tab">광주</a></li>
+		<li><a  href="#9" data-toggle="tab">대전</a></li>
+		<li><a  href="#10" data-toggle="tab">울산</a></li>
+		<li><a  href="#11" data-toggle="tab">강원</a></li>
+		<li><a  href="#12" data-toggle="tab">충청</a></li>
+		<li><a  href="#13" data-toggle="tab">경상</a></li>
+		<li><a  href="#14" data-toggle="tab">전라</a></li>
+		<li><a  href="#15" data-toggle="tab">제주</a></li>
+	</li>
+    </ul>
+
+      <div class="tab-content ">
+        <div class="tab-pane active" id="1">
+          <div class="map">
+						<ul class="area">
+						  <li>광진/건대입구</li>
+						  <li>광화문/시청</li>
+						  <li>노원/도봉/미아</li>
+						  <li>대학로</li>
+						  <li>동대문</li>
+						  <li>마포</li>
+						  <li>명동</li>
+						  <li>부암동/평창동</li>
+						  <li>삼청동</li>
+						  <li>상암</li>
+						  <li>서촌/경복궁</li>
+						  <li>성동</li>
+						  <li>성북</li>
+						  <li>숙대/서울역</li>
+						  <li>신촌/이대</li>
+						  <li>안암/고대</li>
+						  <li>연남동/연희동</li>
+						  <li>연신내</li>
+						  <li>이촌동/용산</li>
+						  <li>이태원/한남동</li>
+						  <li>종로/인사동</li>
+						  <li>충무로/신당동</li>
+						  <li>홍대</li>
+						</ul>
+</div>
+        </div>
+        <div class="tab-pane" id="2">
+          <h3>Notice the gap between the content and tab after applying a background color</h3>
+        </div>
+        <div class="tab-pane" id="3">
+          <h3>add clearfix to tab-content (see the css)</h3>
+        </div>
+      </div>
+  </div>
+
+<hr></hr>
+
+
+
+
+
+
+
+
+<div class="colorbar"></div>
+
+<div id="pin-align">
+
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+  
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+  
+
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+  
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+
+
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+  
+     <div class="pin">
+      <img src="http://placehold.it/300x250">
+      <ul>
+        <li><img src="../images/qqkyakya.jpg" alt="..." class="img-circle"> 뀨뀨꺄꺄</li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i>12</li>
+        <li><i class="fa fa-eye" aria-hidden="true"></i>41</li>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">#태그</p>
+    </div>
+</div>
+  
+
+  </div>     
+      </div>
+    </section>
+    
+    
+  </body>
+</html>
