@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="example.dao.MemberDao">
+	<resultMap type="member" id="memberMap">
+	<!-- type 
+	 스프링 설정 에서 typeAliasesPackage 에 지정함 별명을 앞에 example.vo 으로 
+	 자동으로 만들어 주게 설정했다. 
+	 그래서 앞에 example.vo 를 빼도 된다.
+	 -->
+		<id column="MNO" property="no" /> <!--PK 는 ID 나머지는 result -->
+		<result column="PWD" property="password" />
+		   
+	</resultMap>
+
+	<select id="selectList" resultMap="memberMap" parameterType="map">
+    select mno, name, nicknm, email
+    from hiba_membs
+  
+    limit #{startIndex}, #{length}
+  </select>
+
+  <select id="selectOne" parameterType="int" resultMap="memberMap">
+    select mno,
+    name, nicknm, email
+    from hiba_membs
+    where mno = #{value}
+  </select>
+
+  <select id="selectOneByPassword" resultMap="memberMap" parameterType="map">
+    select mno, name, nicknm, email
+    from hiba_membs 
+    where mno=#{no} and pwd=password(#{password})
+  </select>
+  
+   <select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+    select mno, name, nicknm, email
+    from hiba_membs 
+    where EMAIL=#{email} and PWD=password(#{password})
+  </select>
+  
+  
+  <insert id="insert" parameterType="member">
+    insert into hiba_membs(name,
+    nicknm,  email, pwd)
+    values (#{name}, #{nicknm}, #{email}, password(#{password}))
+  </insert>
+
+  <update id="update" parameterType="member">
+    update hiba_membs set
+    name=#{name},
+    nicknm=#{nicknm},
+    email=#{email}
+    where mno=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from hiba_membs where
+    mno=#{value}
+  </delete>
+
+</mapper>
