@@ -1,11 +1,9 @@
 $("#addBtn").click(function(e) { 
-	var member = {
-			name : $("#name").val(),
-			nicknm : $("#nicknm").val(),
-			email : $("#email").val(),
-			password : $("#password").val()
+	var reply = {
+			contents : $("#contents").val(),
+			nicknm : $("#nicknm").html()	
 	}
-	ajaxAddMember(member)
+	ajaxAddReply(reply)
 });
 
 
@@ -17,29 +15,30 @@ $("#updateBtn").click(function(e) {
 			password : $("#password").val(),
 			no : $("#no").val()
 	}
-	ajaxUpdateMember(member)
-});
-
-$("#deleteBtn").click(function(e) {   
-	ajaxDeleteMember($("#no").val(), $("#password").val())
+	ajaxUpdateReply(reply)
 });
 
 
+$("#board-Table").on('click', '#deleteBtn', function(e) {   
+	ajaxDeleteReply($("#no").html(), $("#password").val())
+});
 
-function ajaxAddMember(member) {
-	$.post("add.json", member, function(result) {
+
+
+function ajaxAddReply(reply) {
+	$.post("../reply/add.json", reply, function(result) {
 		if (result.state != "success") {
 			console.log(result.data)
 			alert("등록 실패 입니다.")       
 			return
 		} 
-		window.location.href ="memberApp.html"
+		window.location.href ="makeSc.html"
 	}, "json" )	
 }
 
-function ajaxLoadMember(no) {
+function ajaxLoadReply(no) {
 	
-	$.getJSON("detail.json?no=" + no, function(result){
+	$.getJSON("../reply/detail.json?no=" + no, function(result){
 		if (result.state != "success") {
 			alert("조회 실패 입니다.")       
 			return
@@ -53,25 +52,26 @@ function ajaxLoadMember(no) {
 	})
 }
 
-function ajaxUpdateMember(member) {	
-	$.post("update.json", member, function(result) {
+function ajaxUpdateReply(reply) {	
+	$.post("../reply/update.json", reply, function(result) {
 		if (result.state != "success") {
 			alert("변경 실패입니다.")
 			return
 		}
-		window.location.href = "memberApp.html"
+		window.location.href = "replyForm.html"
 	}, "json")
 }
 
-function ajaxDeleteMember(no, password) {
-	$.getJSON("delete.json",{
+function ajaxDeleteReply(no, password) {
+	$.getJSON("../reply/delete.json",{
 		no: no,
 		password : password
 	}, function(result){
 		if (result.state != "success") {
+			console.log(result);
 			alert("삭제 실패 입니다.")       
 			return
 		} 
-		location.href = "memberApp.html"    		
+		location.href = "makeSc.html"    		
 	})		
 }

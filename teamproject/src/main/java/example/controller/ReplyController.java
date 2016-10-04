@@ -8,16 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import example.dao.MemberDao;
-import example.vo.Member;
+import example.dao.ReplyDao;
+import example.vo.Reply;
 
 @Controller // 페이지 컨트롤러에 붙이는 애노테이션 
-@RequestMapping("/member/") // 이 페이지의 컨트롤러의 기준 URL
-public class MemberController {
+@RequestMapping("/reply/") // 이 페이지의 컨트롤러의 기준 URL
+public class ReplyController {
 
 	@Autowired
-	MemberDao memberDao;
+	ReplyDao ReplyDao;
 	
 	@RequestMapping("list")
 	public String list(
@@ -29,41 +30,41 @@ public class MemberController {
 		map.put("startIndex", (pageNo - 1) * length);
 		map.put("length", length);
 
-		List<Member> list = memberDao.selectList(map);
+		List<Reply> list = ReplyDao.selectList(map);
 		model.addAttribute("list", list);			
 		
 		return "/board/BoardList.jsp";	
 	}
 	
 	@RequestMapping("add")
-	public String add(Member board) throws Exception {
-		memberDao.insert(board);		
+	public String add(Reply board) throws Exception {
+		ReplyDao.insert(board);		
 		return "redirect:list.do";
 	}
 	
 	@RequestMapping("detail")
 	public String detail(int no, Model model) throws Exception{
-		Member member = memberDao.selectOne(no);
-		model.addAttribute("member", member);
+		Reply Reply = ReplyDao.selectOne(no);
+		model.addAttribute("Reply", Reply);
 		return "/board/BoardDetail.jsp";
 	}
 	
 	@RequestMapping("update")
-	public String update(Member member) throws Exception{
+	public String update(Reply Reply) throws Exception{
 		HashMap<String,Object> paramMap = new HashMap<>();
-		paramMap.put("no", member.getNo());
-		paramMap.put("password", member.getPassword());
+		paramMap.put("no", Reply.getNo());
+		paramMap.put("password", Reply.getPassword());
 
-		if (memberDao.selectOneByPassword(paramMap) == null) {
+		if (ReplyDao.selectOneByPassword(paramMap) == null) {
 			throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다.!");
 		}
-		memberDao.update(member);
+		ReplyDao.update(Reply);
 		return "redirect:list.do";
 	}
 	
 	@RequestMapping("delete")
 	public String delete(int no) throws Exception {
-		memberDao.delete(no);    	
+		ReplyDao.delete(no);    	
 		return "redirect:list.do";
 	}
 	

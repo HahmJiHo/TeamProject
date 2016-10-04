@@ -1,17 +1,19 @@
-
-document.querySelector("#loginBtn").addEventListener("click", function(e) { 
+$("#loginBtn").click(function(e) { 
 	var user = {
-			email: document.querySelector("#email").value,
-			password: document.querySelector("#password").value,
-			saveEmail: document.querySelector("#saveEmail").checked 
+			email: $("#email").val(),
+			password: $("#password").val(),
+			saveEmail: $("#saveEmail").is(":checked") 
 	}
-
 	ajaxLogin(user)
 });
+
+$('.lgoin-btn').click(function(){
+	$('#login-Modal').modal()
+})
 function ajaxLogin(user) {
 
-	ajax({
-		url :"login.json",
+	$.ajax({
+		url :"../auth/login.json",
 		method : "POST",
 		dataType : "json",
 		data : user,
@@ -20,7 +22,7 @@ function ajaxLogin(user) {
 				alert("로그인 실패 입니다.\n 이메일 또는 암호를 확인하세요.")       
 				return
 			} 
-			window.location.href = "../board/boardApp.html"		
+			window.location.href = "../group/makeSc.html"		
 		},
 		error : function(msg) {
 			alert(msg)
@@ -30,45 +32,19 @@ function ajaxLogin(user) {
 }
 
 function ajaxLogout(user) {
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function(result) {        
-		if (xhr.readyState != 4)
-			return;
-
-		if (xhr.status != 200) {
-			alert("서버 요청 오류입니다.")
-			return;
-		}
-		var result = JSON.parse(xhr.responseText)
-		if (result.state != "success")
-			alert("로그아웃 실패 입니다.")
-
-	}
-	xhr.open("POST", "logout.json", true)
-	xhr.send()
-
-
+	$.getJSON("logout.json", function(result) {
+		if (result.state != "success") 
+			console.log("로그아웃 실패 입니다.")
+	})
 }
 
 function init() {
-	var cookieMap = cookieToObject()
+	var cookieMap = bit.cookieToObject()
 
 	// if ("eamil" in cookieMap) // 쿠키맵 객체에 이메일이라는 이름의 프로퍼티가 있는가
-	if (cookieMap["email"]) { // 쿠키맵 객체에 이름으로 저장된 값이 있는가?
-		document.querySelector("#email").value = cookieMap["email"]
-		document.querySelector("#saveEmail").checked = true;
+	if ("email" in cookieMap) { // 쿠키맵 객체에 이름으로 저장된 값이 있는가?
+		$("#email").val(cookieMap["email"])
+		$("#saveEmail").attr("checked", true)
 	}
 
-}
-
-function cookieToObject() {
-	var cookies = document.cookie.split(";")
-	var obj = {}
-	if (cookies.length == 0)
-		return obj;
-	cookies.forEach(function(data) {
-		var cookie = data.trim().split("=")      
-		obj[cookie[0]] = cookie[1].replace(/\"/gi,"") 
-	})
-	return obj
 }

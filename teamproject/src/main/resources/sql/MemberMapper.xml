@@ -10,6 +10,8 @@
 	 그래서 앞에 example.vo 를 빼도 된다.
 	 -->
 		<id column="MNO" property="no" /> <!--PK 는 ID 나머지는 result -->
+		<result column="PWD" property="password" />
+		   
 	</resultMap>
 
 	<select id="selectList" resultMap="memberMap" parameterType="map">
@@ -27,22 +29,30 @@
   </select>
 
   <select id="selectOneByPassword" resultMap="memberMap" parameterType="map">
-    select no, name, nicknm, email
+    select mno, name, nicknm, email
     from hiba_membs 
-    where no=#{no} and password=password(#{password})
+    where mno=#{no} and pwd=password(#{password})
   </select>
-
+  
+   <select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+    select mno, name, nicknm, email
+    from hiba_membs 
+    where EMAIL=#{email} and PWD=password(#{password})
+  </select>
+  
+  
   <insert id="insert" parameterType="member">
     insert into hiba_membs(name,
     nicknm,  email, pwd)
-    values (#{name}, #{nicknm}, #{email}, password(#{pwd}))
+    values (#{name}, #{nicknm}, #{email}, password(#{password}))
   </insert>
 
   <update id="update" parameterType="member">
     update hiba_membs set
     name=#{name},
-    nicknm=#{nicknm}
-    where no=#{no}
+    nicknm=#{nicknm},
+    email=#{email}
+    where mno=#{no}
   </update>
 
   <delete id="delete" parameterType="int">

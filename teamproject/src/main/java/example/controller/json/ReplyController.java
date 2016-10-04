@@ -13,17 +13,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
 
-import example.dao.MemberDao;
-import example.vo.Member;
+import example.dao.ReplyDao;
+import example.vo.Reply;
 
 @Controller // 페이지 컨트롤러에 붙이는 애노테이션 
-@RequestMapping("/member/") // 이 페이지의 컨트롤러의 기준 URL
-public class MemberController {
+@RequestMapping("/reply/") // 이 페이지의 컨트롤러의 기준 URL
+public class ReplyController {
 	@Autowired
-	MemberDao memberDao;
+	ReplyDao ReplyDao;
 	
 	@RequestMapping(path="list", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -38,7 +39,7 @@ public class MemberController {
 			map.put("startIndex", (pageNo - 1) * length);
 			map.put("length", length);
 
-			List<Member> list = memberDao.selectList(map);			
+			List<Reply> list = ReplyDao.selectList(map);			
 			result.put("state", "success");
 			result.put("data", list);
 		} catch (Exception e) {
@@ -58,7 +59,7 @@ public class MemberController {
 		map.put("startIndex", (pageNo - 1) * length);
 		map.put("length", length);
 
-		List<Member> list = memberDao.selectList(map);
+		List<Reply> list = ReplyDao.selectList(map);
 		
 		HttpHeaders heades = new HttpHeaders();
 		heades.add("Content-type","text/plain;charset=UTF-8");
@@ -70,11 +71,11 @@ public class MemberController {
 	
 	@RequestMapping(path="add", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public String add(Member Member) throws Exception {
+	public String add(Reply Reply) throws Exception {
 		// 성공하든 실패하든 클라이언트에게 데이터를 보내야 한다.
 		HashMap<String, Object> result = new HashMap<>();
 		try {
-			memberDao.insert(Member);
+			ReplyDao.insert(Reply);
 			result.put("state", "success");
 		} catch (Exception e) {
 			result.put("state", "fail");
@@ -89,12 +90,12 @@ public class MemberController {
 		HashMap<String, Object> result = new HashMap<>();
 		
 		try {
-			Member Member = memberDao.selectOne(no);
+			Reply Reply = ReplyDao.selectOne(no);
 			
-			if (Member == null)
+			if (Reply == null)
 				throw new Exception("해당 번호의 게시물이 존재하지 않습니다.");
 			result.put("state", "success");
-			result.put("data", Member);
+			result.put("data", Reply);
 			
 		
 		} catch (Exception e) {
@@ -108,18 +109,18 @@ public class MemberController {
 	
 	@RequestMapping(path="update", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public String update(Member Member) throws Exception{
+	public String update(Reply Reply) throws Exception{
 
 		HashMap<String, Object> result = new HashMap<>();
 		try {
 			HashMap<String,Object> paramMap = new HashMap<>();
-			paramMap.put("no", Member.getNo());
-			paramMap.put("password", Member.getPassword());
+			paramMap.put("no", Reply.getNo());
+			paramMap.put("password", Reply.getPassword());
 
-			if (memberDao.selectOneByPassword(paramMap) == null) {
+			if (ReplyDao.selectOneByPassword(paramMap) == null) {
 				throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다.!");
 			}
-			memberDao.update(Member);
+			ReplyDao.update(Reply);
 			result.put("state", "success");
 		} catch (Exception e) {
 			result.put("state", "fail");
@@ -134,7 +135,7 @@ public class MemberController {
 	public String delete(int no) throws Exception {
 		HashMap<String, Object> result = new HashMap<>();
 		try {
-			if (memberDao.delete(no) == 0) {
+			if (ReplyDao.delete(no) == 0) {
 				throw new Exception("해당 게시물이 없거나 삭제 실패 입니다.");
 			}
 			result.put("state", "success");

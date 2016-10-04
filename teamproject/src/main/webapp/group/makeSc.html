@@ -142,7 +142,8 @@
         </div>
         <div class="my-info">
            <ul>
-             <li class="my-profile">My 이미지</li> 
+             <li class="my-profile"><span id="userName" class="my-login"></span></li>             
+              <li><a href='#' id="logoutBtn" class="btn btn-xs btn-success my-login">로그 아웃</a></li>                      
              <li class="add-group"><a href="#">그룹 추가</a></li>
            </ul>  
         </div>
@@ -159,6 +160,7 @@
 		                  <h4 id="modalTitle" class="modal-title"></h4>
 		                  <p class="modal-start-date"></p>
 		                  <p class="modal-end-date"></p>
+		                  <p class="modal-data-value"></p>
 		              </div>
 		              <div id="modalBody" class="modal-body"> 
                    <div style="margin-top:5px;">
@@ -344,21 +346,63 @@ async defer></script>
 
     
 
-    <div class="reply">
-      <form name="writeForm" id="writeForm" action="js/jso.json">
-      <div class="reply-contents">    
-         <div class="reply-box">
-             <ul></ul>
-          </div> 
-          <div class="write-box">           
-             <textarea name="reply" id="reply-area" class="review-replay" placeholder="로그인 후에 등록됩니다."></textarea>
-             <div class="write-btn">
-               <input type="button" value="등록" class="reply-btn" name="reply-btn">
-             </div>
-              <p class="textcomment">최대 <span class="byte-count"><em>0</em></span>/ 200bytes (최대 한글 100자, 영문200자)</p>                           
-           </div>
-         </div>
-       </form>
+    <div class="reply my-login">
+      <form method="post" class="form-horizontal">    
+		    <table id="board-Table"class='table table-hover'>
+		      <thead>
+		        <tr>
+		          <th>번호</th>
+		          <th>내용</th>
+		          <th>닉네임</th>
+		          <th>등록일</th>   
+		          <th>삭제</th>       
+		        </tr>
+		      </thead>
+		      <tbody>
+		
+		      </tbody>
+		    </table>
+		    <div class="form-group my-view">
+		      <label for="no" class="col-sm-2 control-label">번호</label>
+		      <div class="col-sm-10">
+		        <input type="text" class="form-control" id="no" readonly>
+		      </div>
+		    </div>
+		    
+		    <div class="form-group">
+		      <label for="contents" class="col-sm-2 control-label">내용</label>
+		      <div class="col-sm-10">
+		        <textarea class="form-control" id="contents" placeholder="내용"> </textarea>
+		      </div>
+		      
+		    </div>
+		    
+		    <div class="form-group">
+		    <label for="userName" class="col-sm-2 control-label">닉네임</label>
+		      <div class="col-sm-10">
+		        <span id="nicknm" class="my-login" style="color:#000"></span>
+		      </div>
+		    </div> 
+
+		     
+		    <div class="form-group">
+		      <label for="password" class="col-sm-2 control-label">암호</label>
+		      <div class="col-sm-10">
+		        
+		        <input type="password" id="password" class="form-control" placeholder="암호">  
+		      </div>
+		    </div>
+		    
+		    <div class="form-group">
+		      <div class="col-sm-offset-2 col-sm-10">
+		        <button id="addBtn" type="button" class="btn btn-default my-new">등록</button>
+		        <button id="updateBtn" type="button" class="btn btn-default my-view">변경</button>
+		        <button id="deleteBtn" type="button" class="btn btn-default my-view">삭제</button>
+		        <button id="cancelBtn" type="button" class="btn btn-default"
+		        onclick="location.href='memberApp.html'">취소</button>
+		      </div>
+		    </div>
+		  </form>
     </div>
     
   </section>
@@ -368,8 +412,26 @@ async defer></script>
   
   </footer>
   <script type='text/javascript'  src="../js/include.js"></script>    
-  <script type='text/javascript' src='../js/cal_custom.js'></script>
   <script type='text/javascript'  src="../js/main.js"></script>
   <script type='text/javascript'  src="../js/calendar.js"></script> 
+  <script type='text/javascript' src='../js/cal_custom.js'></script>
+  <script type="text/javascript" src="../js/bit.js"></script>   
+  <script type="text/javascript" src="../member/memberApp.js"></script>
+  <script type="text/javascript" src="../reply/replyForm.js"></script>
+  <script type="text/javascript" src="../reply/replyApp.js"></script>
+  <script>
+  ajaxLoginUser()
+  ajaxReplyList()   
+  
+	if (location.search.startsWith("?")) {
+	  var no = location.search.split("=")[1];
+	  ajaxLoadMember(no)
+	  $(".my-new").css("display","none")
+	 
+	} else {
+	    $(".my-view").css("display","none")
+	}
+  
+  </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 $(function () {
+	
+	/*
 	$('.review-replay').keydown(function() {
 		  var textLength = $('#reply-area').val().length;
 		  var byteCount = 0;
@@ -36,7 +38,46 @@ $(function () {
 		 	 alert("내용을  입력하세요");		 	 
 		 } 	 	
     });	
-
+	*/
+	
+	
+		/*
+	if ($('.list-checked').is(':checked')) {
+		alert($(this).attr('data-value'));	
+	}
+		*/
+	/*
+	$('.schedule-btn').on('click', ':checkbox', function() {
+	    if ($(this).is(':checked')) {
+	        // handle checkbox check
+	        //var getDataValue = 
+	    	//console.log($(this).attr('data-value'));
+	        
+	    } else {
+	        // checkbox is unchecked
+	        alert('unchecked')
+	    }
+	});	
+	*/
+	/*
+	 $('.schedule-btn').on('click', ':checkbox', function() {				  						  
+		  if ($(this).is(':checked')) {				       
+		    	var $valueCount = $(this).attr('data-value');
+		    	//console.log($valueCount)
+		    	var eventLen = $('.fc-content').length;
+		    	for (var i = 1; i <= eventLen; i++) {
+		    		console.log(event.count)
+		    		if ($valueCount == event.count) {				    		
+		    			$('.fc-day-grid-event').css("display","block");
+			    	} else {
+			    		$('.fc-day-grid-event').css("display","none");
+			    	}
+		    	}
+		    					    					        
+		    } 
+		   
+		});	
+	*/
 	
 })
 

@@ -28,7 +28,7 @@ body{ font-family:"arial", sans-serif; font-size:12px;}
 /*header*/
 header { background: #111; color:#fff; height: 45px;}
 nav{  width: 100%; }
-.nav-warp { margin: 0 auto;  width: 1080px; }
+.nav-warp { margin: 0 auto;  width: 1024px; }
 .nav-warp h1{ float: left; margin-right: 5px; font-size: 20px;  }
 .nav-warp .nav li{ float: left; margin-right: 10px; font-size:14px;}
 .navbar { display: none; position: fixed; right:20px; top:10px; cursor: pointer; }
@@ -36,8 +36,8 @@ nav{  width: 100%; }
 
 .nav-warp .nav li.logout { float: right;}
 
-section {min-height:700px;}
-.section-wrap { width: 1080px; margin: 0 auto; padding-top: 30px;}
+section { min-height:700px; }
+.section-wrap { width: 1024px; margin: 0 auto; padding-top: 30px;}
 .section-wrap h2 { font-size: 25px; }
 
 footer { background: #0063A6; color:#fff; padding: 25px 0; clear: both; }

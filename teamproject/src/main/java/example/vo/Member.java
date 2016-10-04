@@ -10,7 +10,7 @@ public class Member implements Serializable {
 	protected String name;
 	protected String nicknm;
 	protected String email;
-	protected transient String pwd;
+	protected transient String password;
 	public int getNo() {
 		return no;
 	}
@@ -35,13 +35,13 @@ public class Member implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
+
 	
 	
 	
