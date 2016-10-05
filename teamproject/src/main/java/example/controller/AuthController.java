@@ -31,7 +31,7 @@ public class AuthController {
 		model.addAttribute("email", email);
 		model.addAttribute("checked", (email.equals("")) ? "" : "checked");
 
-		return "/auth/LoginForm.jsp";	
+		return "auth/LoginForm";	
 	}
 
 	@RequestMapping("login")
@@ -62,7 +62,7 @@ public class AuthController {
 
 		if (member == null) {
 			sessionStatus.setComplete();			
-			return "/auth/LoginFail.jsp";
+			return "auth/LoginFail";
 
 		} else {					
 			model.addAttribute("member", member); // Model 객체에 로그인 회원정보를 담는다.		

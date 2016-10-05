@@ -7,8 +7,8 @@ $("#logoutBtn").click(function (e) {
 })
 
 function ajaxMemberList() {
-	$.getJSON("list.json", function(result) {
-
+	$.getJSON(serverAddr +"/member/list.json", function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패 했습니다.")
 			return
@@ -35,7 +35,8 @@ function ajaxMemberList() {
 }
 
 function ajaxLoginUser() {
-	$.getJSON("../auth/loginUser.json", function(result) {
+	$.getJSON(serverAddr +"/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") {
 			$(".my-login").css("display", "none")
 			return

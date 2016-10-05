@@ -13,11 +13,12 @@ $('.lgoin-btn').click(function(){
 function ajaxLogin(user) {
 
 	$.ajax({
-		url :"../auth/login.json",
+		url : serverAddr +"/auth/login.json",
 		method : "POST",
 		dataType : "json",
 		data : user,
-		success : function(result) {
+		success : function(obj) {
+			var result = obj.jsonResult
 			if (result.state != "success") {
 				alert("로그인 실패 입니다.\n 이메일 또는 암호를 확인하세요.")       
 				return
@@ -32,7 +33,8 @@ function ajaxLogin(user) {
 }
 
 function ajaxLogout(user) {
-	$.getJSON("logout.json", function(result) {
+	$.getJSON( serverAddr +"/auth/logout.json", function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") 
 			console.log("로그아웃 실패 입니다.")
 	})

@@ -12,7 +12,7 @@
 		<id column="RNO" property="no" /> <!--PK 는 ID 나머지는 result -->
     <result column="conts" property="contents" />
     <result column="cre_dt" property="createdDate" />
-		   
+		<result column="PWD" property="password" />
 	</resultMap>
 
 	<select id="selectList" resultMap="replyMap" parameterType="map">
@@ -30,19 +30,19 @@
     select rno,
     name, nicknm, email
     from hiba_g_reply
-    where mno = #{value}
+    where rno = #{value}
   </select>
 
   <select id="selectOneByPassword" resultMap="replyMap" parameterType="map">
-    select rno, name, nicknm, email
+    select rno, conts, nicknm, cre_dt
     from hiba_g_reply 
     where rno=#{no} and pwd=password(#{password})
   </select>
   
    <select id="selectOneByEmailAndPassword" resultMap="replyMap" parameterType="map">
-    select rno, name, nicknm, email
+    select rno,  nicknm
     from hiba_g_reply 
-    where EMAIL=#{email} and PWD=password(#{password})
+    where nicknm=#{nicknm} and pwd=password(#{password})
   </select>
   
   
@@ -51,10 +51,11 @@
     values (#{contents}, #{nicknm}, now())
     select mno from 'hiba_membs' where nicknm=#{nicknm} -->
     
-    insert into hiba_g_reply(mno, conts, nicknm, cre_dt)
+    insert into hiba_g_reply(mno, conts, nicknm, pwd, cre_dt)
     select mno, 
           #{contents}, 
           #{nicknm}, 
+          password(#{password}),
           now()      
     from hiba_membs
     where nicknm=#{nicknm}
@@ -72,7 +73,7 @@
 
   <delete id="delete" parameterType="int">
     delete from hiba_g_reply where
-    mno=#{value}
+    rno=#{value}
   </delete>
 
 </mapper>

@@ -1,7 +1,8 @@
 $("#addBtn").click(function(e) { 
 	var reply = {
 			contents : $("#contents").val(),
-			nicknm : $("#nicknm").html()	
+			nicknm : $("#nicknm").html(),
+			password : $("#rePassword").val()
 	}
 	ajaxAddReply(reply)
 });
@@ -18,15 +19,19 @@ $("#updateBtn").click(function(e) {
 	ajaxUpdateReply(reply)
 });
 
+$('#group-reply-btn').on('click', function(e) {
+	$('#reply-modal').modal();
+	$("#board-Table > tbody").on('click', '#deleteBtn', function(e) {   
+		ajaxDeleteReply($(this).parent().prevAll("#no").text(), $(this).next("#password").val())
+	});
 
-$("#board-Table").on('click', '#deleteBtn', function(e) {   
-	ajaxDeleteReply($("#no").html(), $("#password").val())
-});
-
+		
+})
 
 
 function ajaxAddReply(reply) {
-	$.post("../reply/add.json", reply, function(result) {
+	$.post(serverAddr +"/reply/add.json", reply,  function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") {
 			console.log(result.data)
 			alert("등록 실패 입니다.")       
@@ -38,7 +43,8 @@ function ajaxAddReply(reply) {
 
 function ajaxLoadReply(no) {
 	
-	$.getJSON("../reply/detail.json?no=" + no, function(result){
+	$.getJSON(serverAddr +"/reply/detail.json?no=" + no,  function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("조회 실패 입니다.")       
 			return
@@ -53,7 +59,8 @@ function ajaxLoadReply(no) {
 }
 
 function ajaxUpdateReply(reply) {	
-	$.post("../reply/update.json", reply, function(result) {
+	$.post(serverAddr +"/reply/update.json", reply,  function(obj) {
+		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("변경 실패입니다.")
 			return
@@ -63,7 +70,7 @@ function ajaxUpdateReply(reply) {
 }
 
 function ajaxDeleteReply(no, password) {
-	$.getJSON("../reply/delete.json",{
+	$.getJSON(serverAddr +"/reply/delete.json",{
 		no: no,
 		password : password
 	}, function(result){

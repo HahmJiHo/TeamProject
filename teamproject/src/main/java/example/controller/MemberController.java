@@ -32,7 +32,7 @@ public class MemberController {
 		List<Member> list = memberDao.selectList(map);
 		model.addAttribute("list", list);			
 		
-		return "/board/BoardList.jsp";	
+		return "member/MemberList";	
 	}
 	
 	@RequestMapping("add")
@@ -45,7 +45,7 @@ public class MemberController {
 	public String detail(int no, Model model) throws Exception{
 		Member member = memberDao.selectOne(no);
 		model.addAttribute("member", member);
-		return "/board/BoardDetail.jsp";
+		return "member/MemberDetail";
 	}
 	
 	@RequestMapping("update")

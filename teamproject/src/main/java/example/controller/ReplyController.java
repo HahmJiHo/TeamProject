@@ -33,7 +33,7 @@ public class ReplyController {
 		List<Reply> list = ReplyDao.selectList(map);
 		model.addAttribute("list", list);			
 		
-		return "/board/BoardList.jsp";	
+		return "reply/ReplyList";	
 	}
 	
 	@RequestMapping("add")
@@ -46,7 +46,7 @@ public class ReplyController {
 	public String detail(int no, Model model) throws Exception{
 		Reply Reply = ReplyDao.selectOne(no);
 		model.addAttribute("Reply", Reply);
-		return "/board/BoardDetail.jsp";
+		return "reply/ReplyDetail";
 	}
 	
 	@RequestMapping("update")

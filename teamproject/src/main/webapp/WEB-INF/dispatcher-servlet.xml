@@ -16,6 +16,13 @@
 	</context:component-scan>	
 	<!-- 쓰프링 WebMVC 관련 애노테이션을 처리해주는 객체를 등록한다. -->
   <mvc:annotation-driven/>
-  
+    <!-- 기존의 viewResolver를 교체
+        이 뷰리졸버는 JSP를 찾을때 WEB-INF/view 밑에서 찾는다
+     -->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+     <property name="prefix" value="/WEB-INF/view" />
+     <property name="suffix" value=".jsp" />
+  </bean>
   
 </beans>

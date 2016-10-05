@@ -7,17 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.google.gson.Gson;
-
 import example.dao.MemberDao;
+import example.vo.JsonResult;
 import example.vo.Member;
 
 @Controller
@@ -29,9 +26,8 @@ public class AuthController {
 	MemberDao memberDao;
 
 	
-	@RequestMapping(path="login", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public String login(
+	@RequestMapping(path="login")
+	public Object login(
 			HttpSession session, /*세션이 무효화된 이후에 세션을 자동 생성하도록 강제한다.*/
 			HttpServletResponse response,	
 			String email,	
@@ -39,7 +35,7 @@ public class AuthController {
 			boolean saveEmail,
 			Model model,
 			SessionStatus sessionStatus)	throws Exception {
-		HashMap<String, Object> result = new HashMap<>();
+				
 		try {
 			Cookie cookie = new Cookie("email", email);
 			if (!saveEmail) {
@@ -66,52 +62,43 @@ public class AuthController {
 			
 			if (member == null) {
 				sessionStatus.setComplete();			
-				result.put("state", "fail");
-	
+				return JsonResult.fail();
+				
 			} else {					
 				model.addAttribute("member", member); // Model 객체에 로그인 회원정보를 담는다.		
-				result.put("state", "success");			
+				return JsonResult.success();			
 			}
 		// 로그인 성공 조회 여부 끝
-		} catch(Exception e) {
-			result.put("state", "error");
-			result.put("data", e.getMessage());
+		} catch(Exception e) {			
+			return JsonResult.error(e.getMessage());
 		}					
-		return new Gson().toJson(result);			
 	}
 
-	@RequestMapping(path="logout", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public String logout(HttpSession session, SessionStatus sessionStatus) throws Exception {
-		HashMap<String, Object> result = new HashMap<>();
+	@RequestMapping(path="logout")
+	public Object logout(HttpSession session, SessionStatus sessionStatus) throws Exception {
 		try {
 			sessionStatus.setComplete();
 			session.invalidate();
-			result.put("state", "success");
+			return JsonResult.success();
+			
 		} catch(Exception e) {
-			result.put("state", "error");
-			result.put("data", e.getMessage());
+			return JsonResult.error(e.getMessage());
 		}					
-		return new Gson().toJson(result);			
 	}
 	
-	@RequestMapping(path="loginUser", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public String loginUser(HttpSession session) throws Exception {
-		HashMap<String, Object> result = new HashMap<>();
+	@RequestMapping(path="loginUser")
+	public Object loginUser(HttpSession session) throws Exception {
+
 		try {
 			Member member = (Member)session.getAttribute("member");
 			if(member.getEmail() == null) {
 				throw new Exception("로그인이 되지 않았습니다.");
 			}
-				result.put("state", "success");			
-				result.put("data", member);
+				return JsonResult.success(member);
+				
 		} catch(Exception e) {
-			result.put("state", "error");
-			result.put("data", e.getMessage());
+				return JsonResult.error(e.getMessage());
 		}					
-		return new Gson().toJson(result);			
 	}
-	
-	
+		
 }
