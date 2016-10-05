@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/data/201010/IJ12877841645771/style.css" />
+<link href='../css/fullcalendar.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" href="../css/checkMySchedule.css">
+<link href='../css/fullcalendar.print.css' rel='stylesheet'
+	media='print' />
+
+
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/common_style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link href='../css/fullcalendar.css' rel='stylesheet' />
+<link href='../css/fullcalendar.print.css' rel='stylesheet'
+	media='print' />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" />
+
+<script src='../js/moment.min.js'></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<style>
+.container {
+	width: 600px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src='../js/moment.min.js'></script>
+<script src='../js/fullcalendar.min.js' charset="UTF-8"></script>
+<script src='../js/ko.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>	
+</head>
+<style>
+#calendar {
+	max-width: 850px;
+	margin: 0 auto;
+	float: right;
+}
+
+.modal {
+	z-index: 20;
+}
+
+.modal-backdrop {
+	z-index: 10;
+}
+​
+</style>
+<body>
+	<section>
+		<div class="section-wrap">
+			<div class="selectbar-left">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="button" class="btn btn-default">검색</button>
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="glyphicon glyphicon-th-list"
+							onclick="location.href='MySchedule.html'"></button>
+						<button type="button" class="btn btn-default">월</button>
+					</div>
+				</form>
+				<div class="sectionbar-line">
+					<hr align=center width=100%>
+				</div>
+			</div>
+
+			<nav class="w3-sidenav w3-collapse w3-white w3-animate-left"
+				style="z-index: 3; width: 200px;" id="mySidenav">
+				<br>
+				<div class="w3-container">
+					<a href="#" onclick="w3_close()"
+						class="w3-hide-large w3-right w3-jumbo w3-padding"
+						title="close menu"> <i class="fa fa-remove"></i>
+					</a>
+					<h4 class="w3-padding-0">
+						<b>이상원님의 캘린더</b>
+						<img src="../images/sangwon.jpg" style="width: 50%;"
+							class="w3-round"><br>
+					</h4>
+				</div>
+				<a href="#" class="w3-padding w3-text-teal">전체 그룹 일정보기</a> <a
+					href="#" class="w3-padding">그룹1</a> <a href="#" class="w3-padding">그룹2</a>
+				<a href="#" class="w3-padding">그룹3</a> <a href="#"
+					class="w3-padding">그룹4</a>
+
+
+			</nav>
+
+
+			<div id='calendar'></div>
+
+			<div id="calendarModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span> <span class="sr-only">close</span>
+							</button>
+							<h1 id="modalTitle" class="modal-title"></h1>
+							<p class="modal-groupName">그룹1</p>
+							<p class="modal-start-date"></p>
+							<p class="modal-end-date"></p>
+							<p class="modal-place"></p>
+							<p class="modal-description"></p>
+							<p class="modal-weather"></p>
+						</div>
+						<div id="modalBody" class="modal-body">
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+									onclick="location.href='detailInfo.html'">상세정보</button>
+							<button type="button" class="btn btn-default"
+									onclick="location.href=''">앨범</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">닫기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+
+	</section>
+	<script type='text/javascript' src="../js/calendar.js"></script>
+	<script type='text/javascript' src="../js/include.js"></script>
+	<script type='text/javascript' src='../js/cal_custom.js'></script>
+	<script type='text/javascript' src="../js/main.js"></script>
+</body>
+</html>

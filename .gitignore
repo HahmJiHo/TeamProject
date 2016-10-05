@@ -1,0 +1,4 @@
+/teamproject/
+teamproject/src/main/webapp/WEB-INF/dispatcher-servlet.xml
+teamproject/src/main/webapp/WEB-INF/jdbc.properties
+teamproject/src/main/webapp/WEB-INF/web.xml
