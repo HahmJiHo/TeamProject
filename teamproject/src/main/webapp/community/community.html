@@ -2,17 +2,19 @@
 <html lang="ko">
   <head>
    <meta charset="utf-8">
-    <title>hiba 커뮤니티</title>
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>하이바 커뮤니티</title>
+    
     <link rel="stylesheet" type="text/css" href="../css/common_style.css" >
-    <link rel="stylesheet" type="text/css" href="../css/community.css" >
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/community6.css" >
+    
+    <!-- 부트스크랩 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
     
     
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   </head>
   <body>
     <header>
@@ -33,43 +35,230 @@
         </div>
       </nav>   
     </header>
-    <section>
-      <div class="section-wrap">
-         <h2>커뮤니티.</h2>
-         
- 
- 
-<div class="pinGridWrapper">
-  <h1></h1>  
-  <div class="pinGrid">
+    
+    
+  <section>
+    <div class="section-wrap">
+      <h2>커뮤니티</h2>
+        <div class="col-md-8">
+        
+        <form method="post" class="light">
+          <input type="text" placeholder="검색할 내용을 적어주세요">
+        </form>
+        
+         <button type="button" class="button-border2">  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+         <!-- <button type="button" class="button-border2" data-toggle="modal" data-target="#myModal">글쓰기</button> -->
+         <button type="button" class="button-border2" onclick="document.getElementById('id01').style.display='block'">글쓰기</button>
+         <button type="button" class="button-border2">내글보기</button>
+    </div>
+   
+    <div>
+       <button type="button" class="button-border button-success">최신순</button>
+       <button type="button" class="button-border button-success">조회수</button>
+       <button type="button" class="button-border button-success">댓글순</button>
+       <button type="button" class="button-border button-success">랜덤</button>
+    </div>
+   
+
+
+
+
+<div class="w3-container">
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-8">
+      <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"class="w3-closebtn">&times;</span>
+        <h2>커뮤니티 글쓰기</h2>
+      </header>
+      <div class="w3-container">
+        <form>
+          <div class="form-group"><br>
+            <label for="">제목</label>
+              <input type="text" class="form-control" id="" placeholder="제목을 입력하세요">
+          </div>
+          
+          <div class="form-group">
+             <label for="contents">내용</label>
+               <textarea id="contents" class="form-control"  cols="50" rows="10" placeholder="내용입니다."></textarea>
+          </div>
+          
   
-    <div class="pin">
-      <img src="http://placehold.it/300x250">
-      <ul>
-        <li>20 <i class="fa fa-heart" aria-hidden="true"></i></li>
-        <li>41 <i class="icon-comment"></i></li>
-        <li>12 <i class="fa fa-eye" aria-hidden="true"></i></li>
-       </ul>
-      <h2>subtitle</h2>
-
-      <p>Lorem ipsum dolor sit amet, .</p>
-    </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">암호</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+          </div>
+            <div class="form-group">
+              <label for="exampleInputFile">파일 업로드</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">파일은 한파일당 10MB만 올릴 수 있습니다.</p>
+            </div>
+         </form>
+          </div>
+             <footer class="w3-container w3-teal">
+        <p></p>
+      </footer>
     
-    
-     
-    <div class="pin">
-      <img src="http://placehold.it/500x500">
-      <h2>subtitle</h2>
-      <p>Donec a fermentum nisi.</p>
+      
     </div>
+     </div>
+   </div>
 
-  </div>
-</div>
-         
-         
+
+
+
+<div class="w3-container">
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-8">
+      <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-closebtn">&times;</span>
+        <h2>커뮤니티 글 보기</h2>
+      </header>
+      <div class="w3-container">
+        <form>
+          <div class="form-group"><br>
+            <label for="">제목</label>
+              <input type="text" class="form-control" id="" placeholder="제목을 입력하세요">
+          </div>
+          
+          <div class="form-group">
+             <label for="contents">내용</label>
+               <textarea id="contents" class="form-control"  cols="50" rows="10" placeholder="내용입니다."></textarea>
+          </div>
+          
+  
+          <div class="form-group">
+              <label for="exampleInputPassword1">암호</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+          </div>
+            <div class="form-group">
+              <label for="exampleInputFile">파일 업로드</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">파일은 한파일당 10MB만 올릴 수 있습니다.</p>
+            </div>
+         </form>
+          </div>
+             <footer class="w3-container w3-teal">
+        <p></p>
+      </footer>
+      
+    </div>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 검색바 S -->
+<script type="text/javascript" src="/../js/location.js"></script>
+    <div class="">
+      <div class="findCategory">
+      <form action="/../where_main_search.jsp" method="GET" name="searchForm">
+        <div class="lcate">
+         <div class="title go-ir">
+           <h2>지역선택 <small>원하시는 지역을 선택하세요</small></h2>
+        </div>
+
+        <div class="map">
+          <p class="hide">지도에서 선택</p>
+            <!-- 
+              1. 현재 html을 저장하여 초기화에 사용합니다.
+              2. 스크립트에서 지역번호를 사용한 html 조각을 불러옵니다. 'function getLocate(){} = locate_{지역번호}.html'
+            -->
+            <ul id="setHiddenButtons1">
+              <li class="icon1"><button value="2" name="areaCode" type="button" class="go-button">인천</button></li>
+              <li class="icon2"><button value="1" name="areaCode" type="button" class="go-button">서울</button></li>
+              <li class="icon3"><button value="31" name="areaCode" type="button" class="go-button">경기</button></li>
+              <li class="icon4"><button value="32" name="areaCode" type="button" class="go-button ov">강원</button><input type="hidden" name="areaCode" value="32"></li>
+              <li class="icon5"><button value="34" name="areaCode" type="button" class="go-button">충남</button></li>
+              <li class="icon6"><button value="8" name="areaCode" type="button" class="go-button">세종</button></li>
+              <li class="icon7"><button value="3" name="areaCode" type="button" class="go-button">대전</button></li>
+              <li class="icon8"><button value="35" name="areaCode" type="button" class="go-button">경북</button></li>
+              <li class="icon9"><button value="37" name="areaCode" type="button" class="go-button">전북</button></li>
+              <li class="icon10"><button value="4" name="areaCode" type="button" class="go-button">대구</button></li>
+              <li class="icon11"><button value="5" name="areaCode" type="button" class="go-button">광주</button></li>
+              <li class="icon12"><button value="38" name="areaCode" type="button" class="go-button">전남</button></li>
+              <li class="icon13"><button value="36" name="areaCode" type="button" class="go-button">경남</button></li>
+              <li class="icon14"><button value="7" name="areaCode" type="button" class="go-button">울산</button></li>
+              <li class="icon15"><button value="6" name="areaCode" type="button" class="go-button">부산</button></li>
+              <li class="icon16"><button value="39" name="areaCode" type="button" class="go-button">제주</button></li>
+              <li class="icon17"><button value="33" name="areaCode" type="button" class="go-button">충북</button></li>
+            </ul>
       </div>
-    </section>
-    
-    
+
+      <div class="category">
+        <p class="hide">목록에서 선택</p>
+        <ul id="setHiddenButtons2" class="categoryList">
+          <!-- 강원 -->
+          <li><button name="sigunguCode" value="" type="button" class="go-button ov">전체</button><input type="hidden" name="sigunguCode" value=""></li>
+          <li><button name="sigunguCode" value="1" type="button" class="go-button">강릉시</button></li>
+          <li><button name="sigunguCode" value="2" type="button" class="go-button">고성군</button></li>
+          <li><button name="sigunguCode" value="3" type="button" class="go-button">동해시</button></li>
+          <li><button name="sigunguCode" value="4" type="button" class="go-button">삼척시</button></li>
+          <li><button name="sigunguCode" value="5" type="button" class="go-button">속초시</button></li>
+          <li><button name="sigunguCode" value="6" type="button" class="go-button">양구군</button></li>
+          <li><button name="sigunguCode" value="7" type="button" class="go-button">양양군</button></li>
+          <li><button name="sigunguCode" value="8" type="button" class="go-button">영월군</button></li>
+          <li><button name="sigunguCode" value="9" type="button" class="go-button">원주시</button></li>
+          <li><button name="sigunguCode" value="10" type="button" class="go-button">인제군</button></li>
+          <li><button name="sigunguCode" value="11" type="button" class="go-button">정선군</button></li>
+          <li><button name="sigunguCode" value="12" type="button" class="go-button">철원군</button></li>
+          <li><button name="sigunguCode" value="13" type="button" class="go-button">춘천시</button></li>
+          <li><button name="sigunguCode" value="14" type="button" class="go-button">태백시</button></li>
+          <li><button name="sigunguCode" value="15" type="button" class="go-button">평창군</button></li>
+          <li><button name="sigunguCode" value="16" type="button" class="go-button">홍천군</button></li>
+          <li><button name="sigunguCode" value="17" type="button" class="go-button">화천군</button></li>
+          <li><button name="sigunguCode" value="18" type="button" class="go-button">횡성군</button></li>
+        </ul>
+        <p class="categoryResult"><span class="category1">강원</span> <span class="category2">전체</span> 지역이 선택되었습니다.</p>
+      </div>
+    </div> <!-- class="lcate" -->
+  
+<!--    <div class="submit_buttons">
+      <input type="submit" value="검색하기">
+      <input type="reset" value="초기화">
+    </div>
+    <input type="hidden" name="gotoPage" />
+    <script type="text/javascript" src="/../js/find.js"></script> -->
+      </form>
+      </div>
+    </div> 
+  <!-- 검색바 E -->
+
+
+
+  <div class="colorbar"> 강원 / 전체 </div>
+
+
+  <div id="pin-align">
+  
+     <div class="pin" onclick="document.getElementById('id02').style.display='block'">
+     <div class="img_sum"> <img src="http://placehold.it/320x250"></div>
+       <ul>
+         <li><div class="pull-right"><img src="../images/qqkyakya.png" alt="..." class="img-circle"><h6>뀨뀨꺄꺄</h6></div></li>
+        <li><span class="glyphicon glyphicon-eye-open" aria-hidden="true">41</span>
+        <li><span class="glyphicon glyphicon-comment" aria-hidden="true">12</span>
+       </ul>
+      <h2>게시물제목</h2>
+
+      <p>내용입니다.내용입니다.내용입니다.</p>
+      <p class="tag">태그</p>
+      <p class="tag">태그</p>
+    </div>
+
+
+
+  </div>     
+      </div>
+      
+      </section>
+ 
   </body>
 </html>
