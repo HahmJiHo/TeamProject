@@ -17,13 +17,10 @@
 		<link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 		
 		<script src='../js/moment.min.js'></script>
-
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-		
 		<script src='../js/fullcalendar.min.js' charset="UTF-8"></script>
 	  <script src='../js/ko.js'></script>
 	  <link rel="stylesheet" type="text/css" href="../css/makeCal.css" >
@@ -33,7 +30,7 @@
     <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>	  
 	  <style>
 	    #calendar {
-	    max-width: 850px;
+	    max-width: 800px;
 	    margin: 0 auto;
 	    float: right;
      }
@@ -47,11 +44,11 @@
      .my-schedule ul li { padding: 2px 0; }
      .my-group-member ul li { padding-bottom: 15px; padding-right: 10px; position: relative; }
      .my-group-member ul li i { 
-     display: inline-block; float: right; width: 40px; 
+     display: inline-block; width: 40px; margin-left: 10px;
      height: 40px; background: #555; }     
      .member-photo { display: inline-block; }
      .member-photo img{ width: 70px; height: 70px; border-radius: 100px; }
-     .member-name { display: block; position: absolute; right: 10px; top: 50px; }
+     .member-name { display: block; position: absolute; left: 82px; top: 50px; }
      .state { -  width: 15px; height: 15px; }
      .danger { background:url("../images/ximg.png") no-repeat }
      .success { background:url("../images/successicon.png") no-repeat }
@@ -111,7 +108,65 @@
 }
 .modal-backdrop{
     z-index: 10;        
-}​
+}
+.sm-title { font-size: 15px; color :#696969; } 
+.col-sm-2 { width: 10%; }​
+.reply .control-label {  text-align : left; }
+.reply .col-sm-10 { width : 40%; }
+#board-Table ul li { float :left; padding: 0px 20px 10px 30px; word-break: break-all;}
+.my-make-schedule button { display: inline-block; vertical-align: top;}
+.detail-day li { float: left; }
+.detail-sc-day { color: #9dc92a; border-bottom:2px solid #9dc92a; padding:10px 0; margin: 10px 0;}
+.bubble 
+{
+margin: 5px 0;
+position: relative;
+padding: 0px;
+background: #C7FFFF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+left: 25px;
+}
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 15px 15px 15px 0;
+border-color: transparent #C7FFFF;
+display: block;
+width: 0;
+z-index: 1;
+left: -15px;
+top: 4px;
+}
+.bubble-me 
+{
+margin: 5px 0;
+position: relative;
+padding: 0px;
+background: #FFFFAF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+right: 25px;
+}
+
+.bubble-me:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 15px 0 15px 15px;
+border-color: transparent #FFFFAF;
+display: block;
+width: 0;
+z-index: 1;
+right: -15px;
+top: 4px;
+}
 
   </style>
 
@@ -124,14 +179,12 @@
     <div class="section-wrap">
       <div class="make-top">
         <div class="make-text">
-         <h2><span id="userName" class="my-login"></span> 님의 일정만들기.</h2>
-         <p>일정을 만들 그룹을 선택해 주세요.</p>
+         <h2> <span id="userName" class="my-login"></span> 님의 캘린더.</h2>         
         </div>
         <div class="my-info">
            <ul>
              <li class="my-profile"></li>             
               <li><a href='#' id="logoutBtn" class="btn btn-xs btn-success my-login">로그 아웃</a></li>                      
-             <li class="add-group"><a href="#">그룹 추가</a></li>
            </ul>  
         </div>
       </div>
@@ -144,13 +197,21 @@
 		          <div class="modal-content">
 		              <div class="modal-header">
 		                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-		                  <h4 id="modalTitle" class="modal-title"></h4>
-		                  <p class="modal-start-date"></p>
-		                  <p class="modal-end-date"></p>
-		                  <p class="modal-data-value"></p>
+		                  <h4 id="modalTitle" class="modal-title"></h4>		                		                
 		              </div>
 		              <div id="modalBody" class="modal-body"> 
+		                <div>
+		                  <h4 class="detail-sc-day">날짜</h4>
+		                  <ul class="detail-day">
+		                    <li class="modal-start-date"></li>
+		                    <li class="modal-end-date"> </li>
+		                    <li class="modal-data-value"></li>
+		                  </ul>		                 
+		                </div>
+		                
+		               
                    <div style="margin-top:5px;">
+                     <h4 class="detail-sc-day">장소</h4>
 								     <div id="google_map"style="width:100%; height:450px;"></div>
 								    </div>	              
 		              </div>
@@ -278,29 +339,29 @@ async defer></script>
              </div>
           </div>
       </div>   
-       <div class="aside" style="float: left;">
+       <div class="aside" style="float: left; width: auto;">
          <div class="my-make-schedule">
-            <button type="button" class="make-sc-btn" style="cursor: pointer">일정 추가하기</button><br>
-            <button type="button" class="add-member-btn" style="cursor: pointer">멤버 추가하기</button>
+            <button type="button" class="make-sc-btn btn btn-sm" style="cursor: pointer">일정 추가하기</button>
+            <button type="button" class="add-member-btn btn btn-sm" style="cursor: pointer">멤버 추가하기</button>
          </div>
-         <h3>진행 중인 일정</h3>
+         <h3 class="sm-title">진행 중인 일정</h3>
 	       <div class="my-schedule checkbox">
             <ul class='schedule-btn'></ul>
 	       </div>
 	       <div class="my-group-member">
-	       <h4 style="display:inline">참가 멤버</h4>
-	       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" style="float:right">
+	       <h4 class="sm-title" style="display:inline">참가 멤버</h4>
+	       <button class="btn btn-xs btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" style="float:right">
   <span class="glyphicon glyphicon-chevron-down"></span>
 </button>
 	       <div class="collapse in" id="collapseExample" aria-expanded="true" style="clear:both">
-            <div class="well">
+   
 			         <ul>
 		             <li>
 		              <span class="member-photo">
 		                <img src="../images/514741.jpg">
-		              </span>
-		              <i class="member-color"></i>
-		              <span class="member-name">원지선</span>
+		              </span>		                
+			              <i class="member-color"></i>
+			              <span class="member-name">원지선</span>
 		             </li>
 		             <li>
 		              <span class="member-photo">
@@ -331,34 +392,24 @@ async defer></script>
 		              <span class="member-name">박나현</span>     
 		             </li>          
 		           </ul>
-	           </div>
            </div>
 	       </div> 
 	       <button id="group-reply-btn"class="btn btn-primary" type="button">그룹 댓글</button>
 	        <div id="reply-modal" class="modal fade">
           <div class="modal-dialog">
               <div class="modal-content">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                  <div class="modal-header" style="background:#696969; color:#fff">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color:#fff" class="glyphicon glyphicon-resize-small"></span></button>
                       <h4 id="modalTitle" class="modal-title">그룹 댓글</h4>
                   </div>
                   <div id="modalBody" class="modal-body"> 
                     <div class="reply my-login">
-                      <form method="post" class="form-horizontal">    
-                        <table id="board-Table"class='table table-hover'>
-                          <thead>
-                            <tr>
-                              <th>번호</th>
-                              <th>내용</th>
-                              <th>닉네임</th>
-                              <th>등록일</th>   
-                              <th>삭제</th>       
-                            </tr>
-                          </thead>
-                          <tbody>
-                    
-                          </tbody>
-                        </table>
+                      <form method="post" class="form-horizontal">   
+                      <div class="reply-table-box" style="height: 500px; overflow:hidden; overflow-y:scroll;"> 
+                        <div id="board-Table" class='table table-hover'>                         
+                          
+                        </div>
+                      </div>
                         <div class="form-group my-view">
                           <label for="no" class="col-sm-2 control-label">번호</label>
                           <div class="col-sm-10">
@@ -366,58 +417,36 @@ async defer></script>
                           </div>
                         </div>
                         
-                        <div class="form-group">
-                          <label for="contents" class="col-sm-2 control-label">내용</label>
-                          <div class="col-sm-10">
-                            <textarea class="form-control" id="contents" placeholder="내용"> </textarea>
-                          </div>
-                          
-                        </div>
+
                         
-                        <div class="form-group">
+                        <div class="form-group" style='display:none'>
                         <label for="userName" class="col-sm-2 control-label">닉네임</label>
                           <div class="col-sm-10">
                             <span id="nicknm" class="my-login" style="color:#000"></span>
                           </div>
                         </div> 
-                
-                         
-                        <div class="form-group">
-                          <label for="password" class="col-sm-2 control-label">암호</label>
-                          <div class="col-sm-10">
-                            
-                            <input type="password" id="rePassword" class="form-control" placeholder="암호">  
-                          </div>
+                       
+                       <div class="form-group" style="padding-top:20px;">
+                          <div class="col-sm-10" style="width:100%;">
+                            <textarea class="form-control" id="contents" placeholder="내용" style="width:85%; height:40px; display:inline-block"> </textarea>
+                            <button id="addBtn" type="button" class="btn btn-default my-new" style="float:right">등록</button>                           
+                          </div>                          
                         </div>
                         
-                        <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10">
-                            <button id="addBtn" type="button" class="btn btn-default my-new">등록</button>
-                            <button id="updateBtn" type="button" class="btn btn-default my-view">변경</button>
-                            <button id="cancelBtn" type="button" class="btn btn-default"
-                            onclick="location.href='memberApp.html'">취소</button>
-                          </div>
-                        </div>
                       </form>
                     </div>     
-                  </div>
-                  <div class="modal-footer">                      
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
               </div>
           </div>
         </div>
        </div>
     </div>
-    
-    
-   
   </section>
-       
-                         
+                     
   <footer>
   
   </footer>
+  
   <script type='text/javascript'  src="../js/include.js"></script>    
   <script type='text/javascript'  src="../js/main.js"></script>
   <script type='text/javascript'  src="../js/calendar.js"></script> 
@@ -427,10 +456,9 @@ async defer></script>
   <script type="text/javascript" src="../member/memberApp.js"></script>
   <script type="text/javascript" src="../reply/replyApp.js"></script>
   <script type="text/javascript" src="../reply/replyForm.js"></script>
-  <script>
+  <script>  
   ajaxLoginUser()
   ajaxReplyList()   
-  
 	if (location.search.startsWith("?")) {
 	  var no = location.search.split("=")[1];
 	  ajaxLoadMember(no)

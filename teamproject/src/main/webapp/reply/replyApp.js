@@ -19,25 +19,29 @@ function ajaxReplyList() {
 		var arr = result.data	
 		for (var i in arr) {
 			if ($("#nicknm").text() ==  arr[i].nicknm ) {
-				 contents += "<tr>" +
-				"<td id='no'>" + arr[i].no + "</td>" +
-				"<td><a class='titleLink' href='#' data-no='" + arr[i].no + "'>" + arr[i].contents + "</a></td>" +        
-				"<td class='listNickName'>" + arr[i].nicknm +"</td>" +
-				"<td>" + arr[i].createdDate2 +"</td>" +			
-				"<td class='delBtnList'>" + '<button id="deleteBtn" type="button" class="btn btn-default my-view">삭제</button> <input type="password" id="password" class="form-control" placeholder="암호"> ' + "</td>" +			
-				"</tr>"; 
+				 contents +=  "<span class='listNickName' style='font-weight:bold; float:right; display:block; max-width: 300px; clear:both'>" + arr[i].nicknm +"</span>" +	
+				"<div class='bubble-me' style='float:right; clear:both;'>" +			   			 
+				"<ul style='float:right; clear:both;'>" +
+				"<li id='no' style='display:none'>" + arr[i].no + "</li>" +				
+				"<li>" + arr[i].contents + " </li>" +        
+				//"<td>" + arr[i].createdDate2 +"</td>" +			
+				//"<li class='delBtnList'>" + '<button id="deleteBtn" type="button" class="btn-xs btn-default my-view glyphicon glyphicon-remove"></button>' + "</li>" +			
+				"</ul>" + 
+				"</div>";
 			} else {
-				contents += "<tr>" +
-				"<td id='no'>" + arr[i].no + "</td>" +
-				"<td><a class='titleLink' href='#' data-no='" + arr[i].no + "'>" + arr[i].contents + "</a></td>" +        
-				"<td class='listNickName'>" + arr[i].nicknm +"</td>" +
-				"<td>" + arr[i].createdDate2 +"</td>" +			
-				"<td class='delBtnList'>" + '<input type="password" id="password" class="form-control" placeholder="암호"> ' + "</td>" +			
-				"</tr>"; 
+				contents += "<span class='listNickName' style='font-weight:bold; float:left; display:block; max-width: 300px; clear:both'>" + arr[i].nicknm +"</span>" +
+				"<div class='bubble' style='float:left; clear:both;'>" +   				  				
+				"<ul style='float:left; clear:both'>" +
+				"<li id='no' style='display:none'>" + arr[i].no + "</li>" +				
+				"<li>" + arr[i].contents + "</li>" +        
+				//"<td>" + arr[i].createdDate2 +"</td>" +			
+				"<li class='delBtnList'>" + ' ' + "</li>" +			
+				"</ul>" + 
+				"</div>";
 			}
 		}
 		
-		$("#board-Table tbody").html(contents)
+		$("#board-Table").html(contents)
 		 
 		// 태그 를 추가한후 제목에 대해 click 리스너를 추가한다.
 		/*
