@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse-wtp'  // 'eclipse' 플러그인을 포함한다.
 apply plugin: 'war'          // 웹 애플리케이션 배치 관련 파일을 생성하는 플러그인
 
-// 웹 애플리케이션을 위한 설정 정보 추가(나는 함지호 세계적인 개발자가 될것이다 사실 이미 세계천왕이다)
+// 웹 애플리케이션을 위한 설정 정보 추가
 // 이클립스 WTP의 설정 파일을 만들 때 제공할 정보.
 eclipse {
   wtp {
@@ -27,12 +27,12 @@ repositories {
   mavenCentral()
 }
 
-// 다운로드 받을 의존 라이버르리 버럭 바보 이놈 ! 를 등록한다.
+// 다운로드 받을 의존 라이버르리 를 등록한다.
 dependencies {
   compile group: 'org.mybatis', name: 'mybatis', version: '3.4.1'
   compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
   
-  // 스프링 webmvc 라이브러리(함지호바보)를 추가한다면 spring-context 라이브러리는 추가 하지 않아도 됨.ㅇㅇ응 ! 알겠다능 ! 
+  // 스프링 webmvc 라이브러리를 추가한다면 spring-context 라이브러리는 추가 하지 않아도 됨
   // 의존 라이브러리는 자동으로 포함되기 때문이다.
   //compile group: 'org.springframework', name: 'spring-context', version: '4.3.2.RELEASE'
   
